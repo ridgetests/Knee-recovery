@@ -9,85 +9,93 @@
 <meta name="theme-color" content="#000000">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <title>Recovery</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{--bg:#000;--s1:#0D0D0D;--s2:#141414;--s3:#1A1A1A;--t:#FFF;--t2:#666;--t3:#333;--green:#00E676;--ph:#FF6B35}
+:root{--bg:#000;--s1:#0B0B0B;--s2:#131313;--s3:#1C1C1C;--line:#1A1A1A;--t:#FFF;--t2:#5A5A5A;--t3:#2E2E2E;--green:#00E676;--amber:#FF9F0A;--red:#FF453A;--blue:#0A84FF}
 html,body{height:100%;background:var(--bg);overscroll-behavior:none}
-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',sans-serif;color:var(--t);overflow:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--t);overflow:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
 #app{height:100%;display:flex;flex-direction:column}
-#scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
-#nav{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--s3);display:flex;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:99}
-.nt{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:none;cursor:pointer;padding:4px 0;-webkit-user-select:none;user-select:none}
-.nt-icon{font-size:20px;line-height:1}
-.nt-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3)}
-.card{background:var(--s1);border-radius:14px;padding:16px;margin:0 12px 8px;border:1px solid var(--s3)}
-.divider{height:1px;background:var(--s3);margin:0 12px}
-.pbar{background:var(--s3);border-radius:2px;height:2px}
-.ex-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--s3);cursor:pointer;-webkit-user-select:none;user-select:none}
-.ex-row:last-child{border-bottom:none;padding-bottom:2px}
-.sym-row{margin-bottom:14px}
-input[type=range]{width:100%;height:3px;-webkit-appearance:none;appearance:none;background:var(--s3);border-radius:2px;outline:none;cursor:pointer;margin:5px 0}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.5)}
-.lm-row{display:flex;align-items:center;padding:13px 14px;border-bottom:1px solid var(--s3)}
-.lm-row:last-child{border-bottom:none}
-.ph-block{border-radius:12px;padding:12px 14px;margin:0 12px 7px;background:var(--s1);border-left:3px solid var(--s3)}
-textarea{width:100%;border:none;outline:none;font-family:inherit;font-size:14px;color:#888;resize:none;min-height:72px;background:transparent;line-height:1.5}
-textarea::placeholder{color:var(--s3)}
-.money-toggle{display:flex;background:var(--s3);border-radius:10px;padding:2px;cursor:pointer;-webkit-user-select:none;user-select:none;gap:0}
-.money-opt{font-size:9px;font-weight:700;padding:3px 8px;border-radius:8px;transition:all .2s;letter-spacing:.05em;white-space:nowrap}
-.pill-btn{padding:8px 14px;border-radius:20px;border:1px solid var(--s3);background:none;color:var(--t2);font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s;letter-spacing:.05em;-webkit-user-select:none;user-select:none}
-.pill-btn.on{border-color:var(--ph);color:var(--ph)}
-.nudge{background:#1A0F00;border:1px solid #3A2200;border-radius:12px;padding:12px 14px;margin:10px 12px 0;display:flex;align-items:center;gap:10px}
+#scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+#nav{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--line);display:flex;padding:7px 0 calc(7px + env(safe-area-inset-bottom));z-index:99}
+.nt{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;border:none;background:none;cursor:pointer;padding:3px 0;-webkit-user-select:none;user-select:none}
+.nt svg{width:21px;height:21px;stroke-width:1.6}
+.nt-lbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.lbl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
+.lbl-dim{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+.card{background:var(--s1);border-radius:16px;padding:16px;margin:0 12px 8px;border:1px solid var(--line)}
+.pbar{background:var(--s3);border-radius:2px;height:2px;overflow:hidden}
+.pbf{height:2px;border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.row{display:flex;align-items:center;padding:13px 14px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.chk{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--t3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .18s cubic-bezier(.4,0,.2,1)}
+.exr{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid var(--line);cursor:pointer;-webkit-user-select:none;user-select:none}
+.exr:last-child{border-bottom:none;padding-bottom:2px}
+input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:var(--s3);border-radius:2px;outline:none;cursor:pointer;margin:6px 0}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.6)}
+input[type=number]{background:var(--s2);border:1px solid var(--s3);border-radius:10px;padding:10px 12px;color:#fff;font-family:inherit;font-size:20px;font-weight:600;width:100%;outline:none;-webkit-appearance:none}
+textarea{width:100%;border:none;outline:none;font-family:inherit;font-size:14px;color:#999;resize:none;min-height:70px;background:transparent;line-height:1.55;font-weight:400}
+textarea::placeholder{color:var(--t3)}
+.seg{display:flex;background:var(--s3);border-radius:9px;padding:2px;cursor:pointer;-webkit-user-select:none;user-select:none}
+.seg span{font-size:9px;font-weight:600;padding:4px 9px;border-radius:7px;transition:all .2s;letter-spacing:.04em;white-space:nowrap}
+.tap{cursor:pointer;-webkit-user-select:none;user-select:none;transition:transform .1s}
+.tap:active{transform:scale(.96)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.rise{animation:rise .4s cubic-bezier(.2,.8,.2,1) both}
+.ringwrap{position:relative;display:inline-flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
 <div id="app">
   <div id="scroll"><div id="view"></div></div>
   <nav id="nav">
-    <button class="nt" onclick="sw('today')"><span class="nt-icon" id="ni-today">🏠</span><span class="nt-lbl" id="nl-today">Today</span></button>
-    <button class="nt" onclick="sw('log')"><span class="nt-icon" id="ni-log">📓</span><span class="nt-lbl" id="nl-log">Log</span></button>
-    <button class="nt" onclick="sw('plan')"><span class="nt-icon" id="ni-plan">📅</span><span class="nt-lbl" id="nl-plan">Plan</span></button>
+    <button class="nt" onclick="sw('today')"><svg id="ni-today" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1V9.5z"/></svg><span class="nt-lbl" id="nl-today">Today</span></button>
+    <button class="nt" onclick="sw('log')"><svg id="ni-log" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span class="nt-lbl" id="nl-log">Log</span></button>
+    <button class="nt" onclick="sw('streaks')"><svg id="ni-streaks" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s0 2 2 2 1-4 2-5 0 0 0 0z"/></svg><span class="nt-lbl" id="nl-streaks">Streaks</span></button>
+    <button class="nt" onclick="sw('plan')"><svg id="ni-plan" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span class="nt-lbl" id="nl-plan">Plan</span></button>
   </nav>
 </div>
-
 <script>
 const SG=new Date('2026-07-20T06:00:00'),PG=150,CPC=52.65;
 const gd=()=>Math.floor((Date.now()-SG)/86400000);
-const tk=()=>'rx2_'+new Date().toISOString().slice(0,10);
+const todayKey=()=>new Date().toISOString().slice(0,10);
+const tk=()=>'rx3_'+todayKey();
+const dOff=o=>{const d=new Date();d.setDate(d.getDate()-o);return d.toISOString().slice(0,10)};
 const df=s=>{const[y,m,d]=s.split('-');return Math.ceil((new Date(y,m-1,d)-new Date())/86400000)};
-const fs=s=>{const[y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'})};
+const fsh=s=>{const[y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'})};
 const ff=s=>{const[y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})};
 const fm=n=>'£'+Math.floor(n).toLocaleString('en-GB');
 
 const PH=[
-  {id:'preop',n:'Pre-surgery prep',s:'Pre-op',c:'#FF6B35',start:-9999,end:0,ek:'preop',d:'Build quad strength. Reduce swelling. Prepare your body for surgery.'},
-  {id:'p1',n:'Protection',s:'Phase 1',c:'#FF3B30',start:0,end:42,ek:'ph1',d:'Non-weight-bearing. Ice, elevation, gentle activation.'},
-  {id:'p2',n:'Early mobilisation',s:'Phase 2',c:'#FF9500',start:42,end:90,ek:'ph2',d:'Weight bearing begins. Range of motion work.'},
-  {id:'p3',n:'Strength building',s:'Phase 3',c:'#34C759',start:90,end:180,ek:'ph3',d:'Jogging at 3 months. Gym work. Visible progress.'},
-  {id:'p4',n:'Sport preparation',s:'Phase 4',c:'#0A84FF',start:180,end:270,ek:'ph4',d:'Running. Agility. Sport-specific drills.'},
-  {id:'p5',n:'Return to sport',s:'Phase 5',c:'#AF52DE',start:270,end:365,ek:'ph5',d:'Football. PalmerSport. Everything you enjoy.'},
+  {id:'preop',n:'Pre-surgery prep',s:'Pre-op',c:'#FF6B35',start:-9999,end:0,ek:'preop',d:'Build strength, cut swelling, arrive light. Every day now pays off later.'},
+  {id:'p1',n:'Protection',s:'Phase 1',c:'#FF453A',start:0,end:42,ek:'ph1',d:'Non-weight-bearing. Protect the repair. Ice, elevate, activate.'},
+  {id:'p2',n:'Early mobilisation',s:'Phase 2',c:'#FF9F0A',start:42,end:90,ek:'ph2',d:'Weight bearing begins. Rebuild range. Careful, progressive loading.'},
+  {id:'p3',n:'Strength building',s:'Phase 3',c:'#30D158',start:90,end:180,ek:'ph3',d:'Jogging at 3 months. Gym work. Real, visible progress.'},
+  {id:'p4',n:'Sport preparation',s:'Phase 4',c:'#0A84FF',start:180,end:270,ek:'ph4',d:'Running. Agility. Getting your body back.'},
+  {id:'p5',n:'Return to sport',s:'Phase 5',c:'#BF5AF2',start:270,end:365,ek:'ph5',d:'Football. PalmerSport. Everything you have been working for.'},
 ];
-const PD=['Now — 19 July 2026','20 Jul 2026 — 31 Aug 2026','1 Sep — 17 Oct 2026','18 Oct 2026 — 17 Jan 2027','18 Jan — 17 Apr 2027','18 Apr — 20 Jul 2027'];
+const PD=['Now — 19 Jul 2026','20 Jul — 31 Aug 2026','1 Sep — 17 Oct 2026','18 Oct 2026 — 17 Jan 2027','18 Jan — 17 Apr 2027','18 Apr — 20 Jul 2027'];
 const gp=d=>PH.find(p=>d>=p.start&&d<p.end)||PH[PH.length-1];
 
 const EX={
-  preop:[{id:'qc',l:'Quad contractions',d:'3×10, hold 5s — several times'},{id:'ap',l:'Ankle pumps',d:'Every waking hour'},{id:'ice',l:'Ice knee 4×',d:'20 min on, 40 off'},{id:'elev',l:'Leg elevated',d:'Above heart — BoneFoam'},{id:'ub',l:'Upper body session',d:'Battle ropes or seated weights'}],
-  ph1:[{id:'ap',l:'Ankle pumps',d:'Every hour — prevents DVT'},{id:'qc',l:'Quad contractions',d:'3×10, hold 5s, 3× today'},{id:'slr',l:'Straight leg raises',d:'3×10, 2× today'},{id:'ice',l:'Ice 4× daily',d:'20 min — BoneFoam between'},{id:'elev',l:'Leg elevated',d:'Heel on BoneFoam, knee free'},{id:'hs',l:'Heel slides',d:'Gentle — 0-90° max'}],
-  ph2:[{id:'wb',l:'Weight-bearing walk',d:'Progressive with crutches'},{id:'bike',l:'Stationary bike',d:'Low resistance, 10-20 min'},{id:'vmo',l:'VMO activation',d:'Inner quad focus'},{id:'rom',l:'Range of motion',d:'Target 0-120° by week 12'},{id:'bal',l:'Single-leg balance',d:'Good leg only'},{id:'ice',l:'Ice after exercise',d:'20 min post-activity'}],
-  ph3:[{id:'jw',l:'Jog-walk intervals',d:'1 min jog, 2 min walk'},{id:'lp',l:'Leg press (0-90°)',d:'No deeper than 90°'},{id:'hc',l:'Hamstring curls',d:'Controlled — graft protection'},{id:'prop',l:'Proprioception',d:'Balance board, single-leg'},{id:'swim',l:'Swimming',d:'Freestyle only'}],
-  ph4:[{id:'run',l:'Running session',d:'Building distance and pace'},{id:'agil',l:'Agility drills',d:'Lateral movement'},{id:'gym',l:'Full gym session',d:'Lower body programme'},{id:'sport',l:'Sport drills',d:'Football with physio'}],
-  ph5:[{id:'sport',l:'Sport training',d:'Return to football'},{id:'ps',l:'PalmerSport prep',d:'Track day conditioning'},{id:'maint',l:'Strength maintenance',d:'Keep graft strong'}],
+  preop:[{id:'qc',l:'Quad contractions',d:'3×10, hold 5s'},{id:'ap',l:'Ankle pumps',d:'Every waking hour'},{id:'ice',l:'Ice knee 4×',d:'20 min on, 40 off'},{id:'elev',l:'Leg elevated',d:'Above heart — BoneFoam'},{id:'ub',l:'Upper body session',d:'Battle ropes / seated weights'}],
+  ph1:[{id:'ap',l:'Ankle pumps',d:'Every hour — prevents DVT'},{id:'qc',l:'Quad contractions',d:'3×10, hold 5s, 3× today'},{id:'slr',l:'Straight leg raises',d:'3×10, 2× today'},{id:'ice',l:'Ice 4× daily',d:'20 min sessions'},{id:'elev',l:'Leg elevated',d:'Heel on BoneFoam, knee free'},{id:'hs',l:'Heel slides',d:'Gentle — 0-90° max'}],
+  ph2:[{id:'wb',l:'Weight-bearing walk',d:'Progressive with crutches'},{id:'bike',l:'Stationary bike',d:'Low resistance, 10-20 min'},{id:'vmo',l:'VMO activation',d:'Inner quad focus'},{id:'rom',l:'Range of motion',d:'Target 0-120° by wk 12'},{id:'bal',l:'Single-leg balance',d:'Good leg only'},{id:'ice',l:'Ice after exercise',d:'20 min post-activity'}],
+  ph3:[{id:'jw',l:'Jog-walk intervals',d:'1 min jog, 2 min walk'},{id:'lp',l:'Leg press 0-90°',d:'No deeper than 90°'},{id:'hc',l:'Hamstring curls',d:'Graft protection'},{id:'prop',l:'Proprioception',d:'Balance board work'},{id:'swim',l:'Swimming',d:'Freestyle only'}],
+  ph4:[{id:'run',l:'Running session',d:'Build distance and pace'},{id:'agil',l:'Agility drills',d:'Lateral movement'},{id:'gym',l:'Full gym session',d:'Lower body programme'},{id:'sport',l:'Sport drills',d:'Football with physio'}],
+  ph5:[{id:'sport',l:'Sport training',d:'Return to football'},{id:'ps',l:'PalmerSport prep',d:'Track day conditioning'},{id:'maint',l:'Strength maintenance',d:'Keep the graft strong'}],
 };
 const LM=[
-  {date:'2026-07-20',l:'Surgery',s:'Royal Surrey · Mr Sibbel'},
+  {date:'2026-07-20',l:'Surgery',s:'Royal Surrey · Mr Sibbel',pk:true},
   {date:'2026-08-31',l:'Weight bearing',s:'6 weeks post-op'},
-  {date:'2026-09-14',l:'Driving',s:'Right leg — surgeon cleared'},
+  {date:'2026-09-14',l:'Driving',s:'Right leg — cleared'},
   {date:'2026-10-20',l:'Jogging',s:'3 months post-op'},
   {date:'2027-01-20',l:'Running',s:'6 months post-op'},
   {date:'2027-04-20',l:'Sport training',s:'9 months post-op'},
-  {date:'2027-07-20',l:'PalmerSport',s:'Full return — 12 months'},
+  {date:'2027-07-20',l:'PalmerSport',s:'The summit — 12 months',pk:true},
 ];
 const SYM=[
   {k:'pain',l:'Pain',min:0,max:10,c:'#FF453A',lb:['None','','Very mild','','Mild','','Moderate','','Considerable','','Severe']},
@@ -101,213 +109,427 @@ const FOODS=[{l:'Chicken 150g',g:35},{l:'Whey shake',g:25},{l:'2 eggs',g:12},{l:
 const SC=[{k:'vitc',l:'Vit C',c:'#FF9F0A'},{k:'omega3',l:'Omega 3',c:'#0A84FF'},{k:'multi',l:'Multi',c:'#30D158'}];
 const ML=['','Very low','Low','OK','Good','Great'];
 
-const DS={exercises:{},symptoms:{pain:3,swelling:2,rom:3,mood:3,sleep:3,energy:3},protein:0,supplements:{vitc:false,omega3:false,multi:false},brace:true,notes:'',commutePerWeek:1};
-let S={...DS},TAB='today';
+const DS={exercises:{},symptoms:{pain:3,swelling:2,rom:3,mood:3,sleep:3,energy:3},protein:0,supplements:{vitc:false,omega3:false,multi:false},brace:true,notes:'',alcoholFree:null,movedToday:null,scrollOk:null};
+const CFG_DEF={weightStart:null,weightTarget:80,fundGoal:'Swiss holiday',commutePerWeek:1,weights:{}};
 
-function load(){try{const r=localStorage.getItem(tk());if(r)S={...DS,...JSON.parse(r)};}catch(e){}}
+let S={...DS},CFG={...CFG_DEF},TAB='today';
+</script>
+<script>
+function load(){
+  try{const r=localStorage.getItem(tk());if(r)S={...DS,...JSON.parse(r)};}catch(e){}
+  try{const c=localStorage.getItem('rx3_cfg');if(c)CFG={...CFG_DEF,...JSON.parse(c)};}catch(e){}
+}
 function save(){try{localStorage.setItem(tk(),JSON.stringify(S));}catch(e){}}
-function getMoney(){const d=gd();if(d<=0)return 0;return Math.floor((d/7)*S.commutePerWeek*CPC);}
+function saveCfg(){try{localStorage.setItem('rx3_cfg',JSON.stringify(CFG));}catch(e){}}
+function getDay(o){try{const r=localStorage.getItem('rx3_'+dOff(o));return r?JSON.parse(r):null;}catch(e){return null;}}
+function getMoney(){const d=gd();if(d<=0)return 0;return Math.floor((d/7)*CFG.commutePerWeek*CPC);}
+
+// Recovery score 0-100: exercises 35, protein 20, moved 15, alcohol-free 15, mood logged 15
+function scoreFor(st,dayNum){
+  if(!st)return null;
+  const ph=gp(dayNum);const exs=EX[ph.ek]||[];
+  const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;
+  const exPct=exs.length?done/exs.length:0;
+  let sc=0;
+  sc+=exPct*35;
+  sc+=Math.min((st.protein||0)/PG,1)*20;
+  sc+=st.movedToday?15:0;
+  sc+=st.alcoholFree?15:0;
+  sc+=(st.symptoms&&st.symptoms.moodLogged)?15:0;
+  return Math.round(sc);
+}
+function todayScore(){
+  const ph=gp(gd());const exs=EX[ph.ek]||[];
+  const done=exs.filter(e=>S.exercises[e.id]).length;
+  const exPct=exs.length?done/exs.length:0;
+  let sc=0;
+  sc+=exPct*35;
+  sc+=Math.min(S.protein/PG,1)*20;
+  sc+=S.movedToday?15:0;
+  sc+=S.alcoholFree?15:0;
+  sc+=S.moodLogged?15:0;
+  return Math.round(sc);
+}
+
+// Streak counters — count consecutive days (including today if done) going back
+function streak(check){
+  let n=0;
+  // today
+  if(check(S,gd()))n++;else{
+    // if today not yet done, start from yesterday so streak isn't zeroed mid-day
+    for(let i=1;i<=400;i++){const st=getDay(i);if(st&&check(st,gd()-i))n++;else break;}
+    return n;
+  }
+  for(let i=1;i<=400;i++){const st=getDay(i);if(st&&check(st,gd()-i))n++;else break;}
+  return n;
+}
+const chkAlc=st=>st.alcoholFree===true;
+const chkEx=(st,dn)=>{const ph=gp(dn);const exs=EX[ph.ek]||[];if(!exs.length)return false;const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;return done/exs.length>=0.8;};
+const chkProt=st=>(st.protein||0)>=PG;
+const chkMove=st=>st.movedToday===true;
+
+function scoreHistory(n){
+  const arr=[];
+  for(let i=n-1;i>=1;i--){const st=getDay(i);arr.push(scoreFor(st,gd()-i)||0);}
+  arr.push(todayScore());
+  return arr;
+}
 
 function tex(id){
   S.exercises[id]=!S.exercises[id];save();
   const days=gd(),ph=gp(days),exs=EX[ph.ek]||[];
-  const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,pct=tot>0?Math.round(done/tot*100):0;
+  const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,pct=tot?Math.round(done/tot*100):0;
   const dot=document.getElementById('ex-'+id);
-  if(dot){dot.style.background=S.exercises[id]?ph.c:'transparent';dot.style.borderColor=S.exercises[id]?ph.c:'#333';dot.innerHTML=S.exercises[id]?'<svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,2.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':'';}
-  const nm=document.getElementById('exn-'+id);if(nm){nm.style.color=S.exercises[id]?'#333':'#fff';nm.style.textDecoration=S.exercises[id]?'line-through':'none';}
-  const bar=document.getElementById('xbar');const cnt=document.getElementById('xcnt');const pctEl=document.getElementById('xpct');
-  if(bar)bar.style.width=pct+'%';if(cnt)cnt.textContent=done===tot&&tot>0?'All done':done+' of '+tot;if(pctEl)pctEl.textContent=pct+'%';
+  if(dot){dot.style.background=S.exercises[id]?ph.c:'transparent';dot.style.borderColor=S.exercises[id]?ph.c:'var(--t3)';dot.innerHTML=S.exercises[id]?'<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':'';}
+  const nm=document.getElementById('exn-'+id);if(nm){nm.style.color=S.exercises[id]?'var(--t3)':'#fff';nm.style.textDecoration=S.exercises[id]?'line-through':'none';}
+  updateScoreRing();
+  const xb=document.getElementById('xbar'),xc=document.getElementById('xcnt');
+  if(xb)xb.style.width=pct+'%';if(xc)xc.textContent=done+'/'+tot;
 }
-function tgl(k){S[k]=!S[k];save();const a=document.getElementById('ton-'+k),b=document.getElementById('toff-'+k);if(a&&b){const on=S[k];a.style.background=on?'var(--ph)':'transparent';a.style.color=on?'#000':'#444';b.style.background=!on?'var(--s2)':'transparent';b.style.color=!on?'var(--t)':'#444';}}
+function updateScoreRing(){
+  const sc=todayScore();
+  const el=document.getElementById('scoreNum');if(el)el.textContent=sc;
+  const ring=document.getElementById('scoreArc');
+  if(ring){const circ=2*Math.PI*52;ring.style.strokeDashoffset=circ*(1-sc/100);}
+}
+function tgl(k){S[k]=!S[k];save();renderToday();}
+function setTri(k,v){S[k]=(S[k]===v?null:v);if(k==='moodLoggedProxy'){}save();renderToday();}
 function tsupp(k,el){S.supplements[k]=!S.supplements[k];save();const sc=SC.find(s=>s.k===k);if(el){el.style.background=S.supplements[k]?sc.c:'transparent';el.style.borderColor=S.supplements[k]?sc.c:'var(--s3)';el.style.color=S.supplements[k]?'#000':'var(--t2)';el.textContent=(S.supplements[k]?'✓ ':'')+sc.l;}}
-function addP(g){S.protein=Math.max(0,Math.min(250,S.protein+g));save();const n=document.getElementById('pnum'),b=document.getElementById('pb');if(n){n.textContent=S.protein;n.style.color=S.protein>=PG?'#30D158':'#fff';}if(b){b.style.width=Math.min(Math.round(S.protein/PG*100),100)+'%';b.style.background=S.protein>=PG?'#30D158':'#007AFF';}}
+function addP(g){S.protein=Math.max(0,Math.min(300,S.protein+g));save();const n=document.getElementById('pnum'),b=document.getElementById('pb');if(n){n.textContent=S.protein;n.style.color=S.protein>=PG?'var(--green)':'#fff';}if(b){b.style.width=Math.min(S.protein/PG*100,100)+'%';b.style.background=S.protein>=PG?'var(--green)':'var(--blue)';}updateScoreRingSilent();}
+function updateScoreRingSilent(){const el=document.getElementById('scoreNumLog');}
 function uNote(v){S.notes=v;save();}
-function uSym(k,v){S.symptoms[k]=parseInt(v);save();const sym=SYM.find(s=>s.k===k);if(sym){const el=document.getElementById('sv-'+k);const tag=sym.lb[parseInt(v)]||v;if(el)el.textContent=v+(sym.min===0?'/10':'/5')+' · '+tag;}}
-function setCom(n){S.commutePerWeek=n;save();const a=document.getElementById('com1'),b=document.getElementById('com2');if(a&&b){a.style.background=n===1?'var(--t)':'transparent';a.style.color=n===1?'#000':'#444';b.style.background=n===2?'var(--t)':'transparent';b.style.color=n===2?'#000':'#444';}const m=document.getElementById('msaved');if(m)m.textContent=getMoney()>0?fm(getMoney()):'£0';}
+function uSym(k,v){S.symptoms[k]=parseInt(v);if(k==='mood'){S.moodLogged=true;}save();const sym=SYM.find(s=>s.k===k);if(sym){const el=document.getElementById('sv-'+k);const tag=sym.lb[parseInt(v)]||v;if(el)el.textContent=v+(sym.min===0?'/10':'/5')+' · '+tag;}}
+function setCom(n){CFG.commutePerWeek=n;saveCfg();renderToday();}
+function saveWeight(){const v=parseFloat(document.getElementById('wIn').value);if(v>0){CFG.weights[todayKey()]=v;if(!CFG.weightStart)CFG.weightStart=v;saveCfg();renderStreaks();}}
+function setupSubmit(){const s=parseFloat(document.getElementById('wStart').value);const t=parseFloat(document.getElementById('wTarget').value);const g=document.getElementById('fundIn').value.trim();if(s>0)CFG.weightStart=s;CFG.weights[todayKey()]=s;if(t>0)CFG.weightTarget=t;if(g)CFG.fundGoal=g;saveCfg();render();}
+</script>
+<script>
+function triBtn(active,label,color,key,icon){
+  return `<div class="tap" onclick="tgl('${key}')" style="flex:1;padding:12px 8px;border-radius:12px;border:1px solid ${active?color:'var(--s3)'};background:${active?color:'transparent'};display:flex;flex-direction:column;align-items:center;gap:5px;transition:all .18s">
+    <span style="font-size:17px">${icon}</span>
+    <span style="font-size:11px;font-weight:600;color:${active?'#000':'var(--t2)'};letter-spacing:.02em">${label}</span>
+  </div>`;
+}
 
-function rToday(){
+function renderToday(){
   const days=gd(),ph=gp(days),exs=EX[ph.ek]||[];
-  const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,exPct=tot>0?Math.round(done/tot*100):0;
+  const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,exPct=tot?Math.round(done/tot*100):0;
   const protPct=Math.min(Math.round(S.protein/PG*100),100);
-  const mPct=Math.round(((S.symptoms.mood||3)-1)/4*100);
-  const dayStr=days<0?'T\u2212'+Math.abs(days):'Day '+days;
-  const daySub=days<0?'DAYS TO SURGERY':'POST-OP';
+  const sc=todayScore();
+  const dayStr=days<0?'T\u2212'+Math.abs(days):'DAY '+days;
+  const daySub=days<0?'until surgery':'post-op · '+ph.s;
   const money=getMoney();
-  const moneySub=days<0?'FROM 20 JUL':S.commutePerWeek+'× WEEKLY';
   const now=new Date();
   const upcoming=LM.filter(m=>{const[y,mo,d]=m.date.split('-');return new Date(y,mo-1,d)>=now;});
+  const nextLM=upcoming[0];
   const hr=new Date().getHours();
-  const nudge=hr>=9&&exPct<50&&tot>0;
+  const eve=hr>=18;
+  const circ=2*Math.PI*52;
+  const scColor=sc>=80?'var(--green)':sc>=50?'var(--amber)':sc>0?'#FF6B35':'var(--t3)';
+
+  // alcohol streak for headline
+  const alcStreak=streak(chkAlc);
+
   document.getElementById('view').innerHTML=
-`<div style="padding:max(14px,env(safe-area-inset-top)) 0 0">
+`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
 
-${nudge?`<div class="nudge"><span style="font-size:18px">⏰</span><div><div style="font-size:12px;font-weight:700;color:#FF9F0A;letter-spacing:.02em">${done} of ${tot} exercises done</div><div style="font-size:11px;color:#553300;margin-top:2px">Tap the exercise card to check them off</div></div></div>`:''}
-
-<div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--s3);margin-top:${nudge?'10px':'0'}">
-  <div style="padding:20px 14px 16px;border-right:1px solid var(--s3)">
-    <div class="lbl" style="margin-bottom:10px">Recovery</div>
-    <div style="font-size:58px;font-weight:800;letter-spacing:-3px;line-height:1;color:var(--t);font-variant-numeric:tabular-nums">${dayStr}</div>
-    <div class="lbl" style="margin-top:8px">${daySub}</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 16px 2px">
+  <div>
+    <div style="font-size:34px;font-weight:700;letter-spacing:-1.5px;line-height:1">${dayStr}</div>
+    <div class="lbl" style="margin-top:3px">${daySub}</div>
   </div>
-  <div style="padding:20px 14px 16px;position:relative">
-    <div class="lbl" style="margin-bottom:10px">Saved</div>
-    <div id="msaved" style="font-size:58px;font-weight:800;letter-spacing:-3px;line-height:1;color:${money>0?'var(--green)':'var(--t3)'};font-variant-numeric:tabular-nums">${money>0?fm(money):'£0'}</div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
-      <div class="lbl">${moneySub}</div>
-      ${days>0?`<div class="money-toggle" onclick="setCom(S.commutePerWeek===1?2:1)" style="margin-left:auto">
-        <span id="com1" class="money-opt" style="background:${S.commutePerWeek===1?'var(--t)':'transparent'};color:${S.commutePerWeek===1?'#000':'#444'}">1×</span>
-        <span id="com2" class="money-opt" style="background:${S.commutePerWeek===2?'var(--t)':'transparent'};color:${S.commutePerWeek===2?'#000':'#444'}">2×</span>
+  <div class="ringwrap tap" onclick="sw('log')">
+    <svg width="118" height="118" viewBox="0 0 118 118">
+      <circle cx="59" cy="59" r="52" fill="none" stroke="var(--s3)" stroke-width="6"/>
+      <circle id="scoreArc" cx="59" cy="59" r="52" fill="none" stroke="${scColor}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-sc/100)}" transform="rotate(-90 59 59)" style="transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1)"/>
+    </svg>
+    <div style="position:absolute;text-align:center">
+      <div id="scoreNum" style="font-size:32px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${scColor}">${sc}</div>
+      <div class="lbl-dim" style="margin-top:1px;font-size:8px">Today</div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 16px;margin-top:2px">
+  <div class="lbl" style="margin-bottom:9px">Daily habits</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px">
+    ${triBtn(S.movedToday===true,'Moved / outside','var(--green)','movedToday','🚶')}
+    ${triBtn(S.alcoholFree===true,alcStreak>0?'Alcohol-free · '+alcStreak:'Alcohol-free','var(--blue)','alcoholFree','🚫')}
+    ${triBtn(S.scrollOk===true,'Off the phone','#BF5AF2','scrollOk','📵')}
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:12px">
+  <div style="padding:16px 16px 14px;border-right:1px solid var(--line)">
+    <div class="lbl" style="margin-bottom:8px">Swiss fund</div>
+    <div style="font-size:32px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${money>0?'var(--green)':'var(--t3)'}">${money>0?fm(money):'£0'}</div>
+    <div style="display:flex;align-items:center;gap:6px;margin-top:7px">
+      <span class="lbl-dim">${days>0?'saved so far':'from 20 Jul'}</span>
+      ${days>0?`<div class="seg" onclick="setCom(CFG.commutePerWeek===1?2:1)" style="margin-left:auto">
+        <span style="background:${CFG.commutePerWeek===1?'#fff':'transparent'};color:${CFG.commutePerWeek===1?'#000':'var(--t3)'}">1×</span>
+        <span style="background:${CFG.commutePerWeek===2?'#fff':'transparent'};color:${CFG.commutePerWeek===2?'#000':'var(--t3)'}">2×</span>
       </div>`:''}
     </div>
   </div>
+  <div class="tap" onclick="sw('plan')" style="padding:16px 16px 14px">
+    <div class="lbl" style="margin-bottom:8px">Next up</div>
+    ${nextLM?`<div style="font-size:20px;font-weight:600;letter-spacing:-.5px;line-height:1.1">${nextLM.l}</div>
+    <div style="display:flex;align-items:baseline;gap:5px;margin-top:7px">
+      <span style="font-size:15px;font-weight:600;color:${df(nextLM.date)<30?'var(--amber)':'#fff'}">${df(nextLM.date)<=0?'Today':df(nextLM.date)<31?df(nextLM.date)+' days':Math.round(df(nextLM.date)/30.4)+' months'}</span>
+    </div>`:'<div style="font-size:18px;font-weight:600">Complete 🎉</div>'}
+  </div>
 </div>
 
-<div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--s3)">
+<div style="padding:14px 16px 6px">
   <div style="display:flex;align-items:center;gap:8px">
     <div style="width:6px;height:6px;border-radius:50%;background:${ph.c}"></div>
-    <span style="font-size:12px;font-weight:700;color:${ph.c};letter-spacing:.02em">${ph.s.toUpperCase()}</span>
-    <span style="font-size:12px;color:var(--t2)">${ph.d}</span>
+    <span style="font-size:12px;font-weight:600;color:${ph.c};letter-spacing:.02em">${ph.s.toUpperCase()}</span>
+    <div class="seg" onclick="tgl('brace')" style="margin-left:auto">
+      <span style="background:${!S.brace?'var(--s2)':'transparent'};color:${!S.brace?'#fff':'var(--t3)'}">No brace</span>
+      <span style="background:${S.brace?ph.c:'transparent'};color:${S.brace?'#000':'var(--t3)'}">Brace on</span>
+    </div>
   </div>
-  <div class="money-toggle" onclick="tgl('brace')" style="gap:0">
-    <span id="toff-brace" class="money-opt" style="background:${!S.brace?'var(--s2)':'transparent'};color:${!S.brace?'var(--t)':'#444'}">Off</span>
-    <span id="ton-brace" class="money-opt" style="background:${S.brace?ph.c:'transparent'};color:${S.brace?'#000':'#444'}">Brace</span>
-  </div>
+  <div style="font-size:13px;color:var(--t2);margin-top:8px;line-height:1.5;padding-left:14px">${ph.d}</div>
 </div>
 
-<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:10px 12px">
-  <div class="card" style="padding:14px;margin:0">
-    <div class="lbl" style="margin-bottom:8px">Exercises</div>
-    <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:2px">
-      <span style="font-size:40px;font-weight:800;color:${exPct===100?ph.c:'var(--t)'};letter-spacing:-2px;line-height:1">${done}</span>
-      <span style="font-size:16px;color:var(--t3);font-weight:600">/${tot}</span>
-    </div>
-    <div class="lbl" id="xcnt" style="margin-bottom:8px">${done===tot&&tot>0?'All done':done+' of '+tot}</div>
-    <div class="pbar" style="margin-bottom:10px"><div id="xbar" style="width:${exPct}%;height:2px;border-radius:2px;background:${ph.c};transition:width .4s"></div></div>
-    ${exs.slice(0,5).map(ex=>`
-    <div class="ex-row" onclick="tex('${ex.id}')">
-      <div id="ex-${ex.id}" style="width:16px;height:16px;border-radius:50%;border:1.5px solid ${S.exercises[ex.id]?ph.c:'#333'};background:${S.exercises[ex.id]?ph.c:'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:all .15s">
-        ${S.exercises[ex.id]?'<svg width="10" height="10" viewBox="0 0 10 10"><polyline points="2,5 4,7.5 8,2.5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
-      </div>
-      <div>
-        <div id="exn-${ex.id}" style="font-size:12px;font-weight:600;color:${S.exercises[ex.id]?'#333':'#fff'};text-decoration:${S.exercises[ex.id]?'line-through':'none'};line-height:1.25;letter-spacing:.01em">${ex.l}</div>
-        <div style="font-size:10px;color:var(--t3);margin-top:1px;line-height:1.2">${ex.d}</div>
-      </div>
-    </div>`).join('')}
-    ${exs.length>5?`<div style="font-size:9px;color:var(--t3);padding-top:6px;letter-spacing:.08em">+${exs.length-5} MORE</div>`:''}
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div class="lbl">Today's exercises</div>
+    <div style="font-size:13px;font-weight:600;color:${exPct===100?ph.c:'var(--t2)'}"><span id="xcnt">${done}/${tot}</span></div>
   </div>
-  <div style="display:flex;flex-direction:column;gap:8px">
-    <div class="card" style="padding:14px;margin:0;flex:1">
-      <div class="lbl" style="margin-bottom:8px">Mood</div>
-      <div style="font-size:26px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;margin-bottom:3px">${ML[S.symptoms.mood||3]}</div>
-      <div class="pbar" style="margin:8px 0 10px"><div style="width:${mPct}%;height:2px;border-radius:2px;background:#0A84FF"></div></div>
-      <div class="lbl" style="margin-bottom:3px">Pain</div>
-      <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1">${S.symptoms.pain||3}<span style="font-size:10px;color:var(--t3);font-weight:600">/10</span></div>
+  <div class="pbar" style="margin-bottom:12px"><div id="xbar" class="pbf" style="width:${exPct}%;background:${ph.c}"></div></div>
+  ${exs.map(ex=>`
+  <div class="exr" onclick="tex('${ex.id}')">
+    <div id="ex-${ex.id}" class="chk" style="border-color:${S.exercises[ex.id]?ph.c:'var(--t3)'};background:${S.exercises[ex.id]?ph.c:'transparent'}">
+      ${S.exercises[ex.id]?'<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
     </div>
-    <div class="card" style="padding:14px;margin:0;flex:1">
-      <div class="lbl" style="margin-bottom:6px">Protein</div>
-      <div style="font-size:28px;font-weight:800;color:${S.protein>=PG?'#30D158':'#fff'};letter-spacing:-1px;line-height:1">${S.protein}<span style="font-size:10px;color:var(--t3);font-weight:600">g</span></div>
-      <div class="pbar" style="margin:7px 0 9px"><div style="width:${protPct}%;height:2px;border-radius:2px;background:${S.protein>=PG?'#30D158':'#007AFF'}"></div></div>
-      <div style="display:flex;gap:4px">
-        ${SC.map(sc=>`<div onclick="tsupp('${sc.k}',this)" style="flex:1;height:20px;border-radius:5px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:${S.supplements[sc.k]?sc.c:'transparent'};display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:8px;font-weight:800;color:${S.supplements[sc.k]?'#000':'var(--t3)'};letter-spacing:.05em;transition:all .15s">${sc.l.slice(0,2)}</div>`).join('')}
-      </div>
+    <div style="flex:1">
+      <div id="exn-${ex.id}" style="font-size:14px;font-weight:500;color:${S.exercises[ex.id]?'var(--t3)':'#fff'};text-decoration:${S.exercises[ex.id]?'line-through':'none'};line-height:1.3">${ex.l}</div>
+      <div style="font-size:11px;color:var(--t2);margin-top:2px">${ex.d}</div>
     </div>
-  </div>
+  </div>`).join('')}
 </div>
 
-<div style="padding:4px 14px 6px;display:flex;justify-content:space-between;align-items:center">
-  <div class="lbl">Landmarks</div>
-  <div class="lbl">${upcoming.length} upcoming</div>
-</div>
-${upcoming.map(m=>{const d=df(m.date),past=d<-1;const label=d<=0?'Today':d===1?'Tomorrow':d<31?d+'d':d<365?Math.round(d/30.4)+'mo':(d/365).toFixed(1)+'yr';const col=d<=0?'#30D158':d<30?'#FF9F0A':'var(--t)';return`<div class="lm-row" style="opacity:${past?.2:1}"><div style="flex:1;min-width:0"><div style="font-size:15px;font-weight:700;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.01em">${m.l}</div><div style="font-size:10px;color:var(--t3);margin-top:1px;letter-spacing:.04em">${m.s}</div></div><div style="font-size:11px;color:var(--t3);text-align:center;min-width:72px;padding:0 8px">${fs(m.date)}</div><div style="font-size:15px;font-weight:800;color:${col};text-align:right;min-width:38px;letter-spacing:-.5px">${label}</div></div>`;}).join('')}
+${eve&&sc<70?`<div class="card" style="background:#0F0A00;border-color:#2A1D00">
+  <div style="display:flex;gap:11px;align-items:flex-start">
+    <span style="font-size:19px">🌙</span>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:var(--amber)">Evening check-in</div>
+      <div style="font-size:12px;color:#8A6A20;margin-top:3px;line-height:1.5">This is the hour it slips. Log the day, skip the drink, and wake up to a clean streak. Tomorrow-you will thank you.</div>
+    </div>
+  </div>
+</div>`:''}
+
 <div style="height:6px"></div>
 </div>`;
+  updateScoreRing();
 }
-
-function rLog(){
+</script>
+<script>
+function renderLog(){
   const pp=Math.min(Math.round(S.protein/PG*100),100);
   document.getElementById('view').innerHTML=
-`<div style="padding:max(14px,env(safe-area-inset-top)) 0 0">
-<div style="padding:8px 14px 14px">
-  <div style="font-size:24px;font-weight:800;color:#fff;letter-spacing:-.5px">Today's log</div>
+`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
+<div style="padding:8px 16px 14px">
+  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">Daily log</div>
   <div class="lbl" style="margin-top:4px">${new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</div>
 </div>
 <div class="card">
-  <div class="lbl" style="margin-bottom:14px">Symptoms</div>
+  <div class="lbl" style="margin-bottom:14px">How you feel</div>
   ${SYM.map(sym=>{const v=S.symptoms[sym.k]??sym.min,t=sym.lb[v]||v;return`
-  <div class="sym-row">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-      <span style="font-size:13px;font-weight:600;color:#bbb;letter-spacing:.01em">${sym.l}</span>
-      <span id="sv-${sym.k}" style="font-size:11px;font-weight:700;color:${sym.c};text-align:right;min-width:100px">${v}${sym.min===0?'/10':'/5'} · ${t}</span>
+  <div style="margin-bottom:15px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+      <span style="font-size:13px;font-weight:500;color:#bbb">${sym.l}</span>
+      <span id="sv-${sym.k}" style="font-size:11px;font-weight:600;color:${sym.c};min-width:100px;text-align:right">${v}${sym.min===0?'/10':'/5'} · ${t}</span>
     </div>
     <input type="range" min="${sym.min}" max="${sym.max}" value="${v}" step="1" style="accent-color:${sym.c}" oninput="uSym('${sym.k}',this.value)">
   </div>`}).join('')}
 </div>
 <div class="card">
-  <div class="lbl" style="margin-bottom:10px">Protein — ${PG}g target</div>
-  <div style="display:flex;align-items:flex-end;gap:8px;margin-bottom:8px">
-    <span id="pnum" style="font-size:48px;font-weight:800;letter-spacing:-2px;line-height:1;color:${S.protein>=PG?'#30D158':'#fff'};font-variant-numeric:tabular-nums">${S.protein}</span>
+  <div class="lbl" style="margin-bottom:12px">Protein — ${PG}g target</div>
+  <div style="display:flex;align-items:flex-end;gap:8px;margin-bottom:10px">
+    <span id="pnum" style="font-size:46px;font-weight:700;letter-spacing:-2px;line-height:1;color:${S.protein>=PG?'var(--green)':'#fff'}">${S.protein}</span>
     <span style="font-size:13px;color:var(--t2);padding-bottom:7px">/ ${PG}g</span>
     <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-      <button onclick="addP(-10)" style="width:36px;height:36px;border-radius:50%;border:1px solid var(--s3);background:none;color:var(--t2);font-size:18px;cursor:pointer;font-family:inherit">−</button>
-      <button onclick="addP(10)" style="width:36px;height:36px;border-radius:50%;border:none;background:#007AFF;color:#fff;font-size:18px;cursor:pointer;font-family:inherit">+</button>
+      <button class="tap" onclick="addP(-10)" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--s3);background:none;color:var(--t2);font-size:20px;cursor:pointer;font-family:inherit;font-weight:300">−</button>
+      <button class="tap" onclick="addP(10)" style="width:38px;height:38px;border-radius:50%;border:none;background:var(--blue);color:#fff;font-size:20px;cursor:pointer;font-family:inherit;font-weight:300">+</button>
     </div>
   </div>
-  <div class="pbar" style="margin-bottom:12px"><div id="pb" style="width:${pp}%;height:2px;border-radius:2px;background:${S.protein>=PG?'#30D158':'#007AFF'};transition:width .3s"></div></div>
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px">
-    ${FOODS.map(f=>`<button onclick="addP(${f.g})" style="padding:8px 10px;border-radius:10px;border:1px solid var(--s3);background:none;font-size:11px;color:var(--t2);cursor:pointer;text-align:left;line-height:1.4;font-family:inherit;font-weight:500">${f.l}<br><span style="color:var(--t3);font-weight:700">+${f.g}g</span></button>`).join('')}
+  <div class="pbar" style="margin-bottom:12px"><div id="pb" class="pbf" style="width:${pp}%;background:${S.protein>=PG?'var(--green)':'var(--blue)'}"></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+    ${FOODS.map(f=>`<button class="tap" onclick="addP(${f.g})" style="padding:9px 11px;border-radius:11px;border:1px solid var(--s3);background:none;font-size:11px;color:var(--t2);cursor:pointer;text-align:left;line-height:1.4;font-family:inherit;font-weight:400">${f.l}<br><span style="color:var(--t3);font-weight:600">+${f.g}g</span></button>`).join('')}
   </div>
 </div>
 <div class="card">
   <div class="lbl" style="margin-bottom:12px">Supplements</div>
   <div style="display:flex;gap:8px">
-    ${SC.map(sc=>`<button onclick="tsupp('${sc.k}',this)" style="flex:1;padding:10px 0;border-radius:10px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:transparent;font-size:11px;font-weight:700;color:${S.supplements[sc.k]?sc.c:'var(--t2)'};cursor:pointer;font-family:inherit;letter-spacing:.05em;transition:all .15s">${S.supplements[sc.k]?'✓ ':''} ${sc.l}</button>`).join('')}
+    ${SC.map(sc=>`<button class="tap" onclick="tsupp('${sc.k}',this)" style="flex:1;padding:11px 0;border-radius:11px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:${S.supplements[sc.k]?sc.c:'transparent'};font-size:11px;font-weight:600;color:${S.supplements[sc.k]?'#000':'var(--t2)'};cursor:pointer;font-family:inherit;transition:all .15s">${S.supplements[sc.k]?'✓ ':''}${sc.l}</button>`).join('')}
   </div>
 </div>
 <div class="card">
-  <div class="lbl" style="margin-bottom:10px">Notes</div>
-  <textarea oninput="uNote(this.value)" placeholder="How is recovery going? Anything for the next appointment...">${S.notes||''}</textarea>
+  <div class="lbl" style="margin-bottom:10px">Notes — for your next appointment</div>
+  <textarea oninput="uNote(this.value)" placeholder="Anything worth flagging to physio or the consultant...">${S.notes||''}</textarea>
 </div>
+<div style="height:6px"></div>
 </div>`;
 }
 
-function rPlan(){
+function renderStreaks(){
+  const alcS=streak(chkAlc),exS=streak(chkEx),protS=streak(chkProt),moveS=streak(chkMove);
+  const hist=scoreHistory(14);
+  const avg=Math.round(hist.reduce((a,b)=>a+b,0)/hist.length);
+  // weight trend
+  const wKeys=Object.keys(CFG.weights).sort();
+  const latestW=wKeys.length?CFG.weights[wKeys[wKeys.length-1]]:null;
+  const startW=CFG.weightStart;
+  const lostW=(startW&&latestW)?(startW-latestW):0;
+  const toGo=latestW?(latestW-CFG.weightTarget):null;
+  // sparkline
+  const W=300,H=54;
+  const mn=Math.min(...hist),mx=Math.max(...hist,100),rng=(mx-mn)||1;
+  const pts=hist.map((v,i)=>{const x=(i/(hist.length-1))*W;const y=H-4-((v-mn)/rng)*(H-8);return x.toFixed(0)+','+y.toFixed(0)}).join(' ');
+
+  function streakCard(label,n,color,icon,sub){
+    return `<div style="flex:1;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:14px 12px">
+      <div style="font-size:16px;margin-bottom:8px">${icon}</div>
+      <div style="font-size:30px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${n>0?color:'var(--t3)'}">${n}</div>
+      <div class="lbl" style="margin-top:5px">${label}</div>
+      <div style="font-size:10px;color:var(--t3);margin-top:3px">${sub}</div>
+    </div>`;
+  }
+
+  const wSetup=!startW;
+
+  document.getElementById('view').innerHTML=
+`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
+<div style="padding:8px 16px 14px">
+  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">Momentum</div>
+  <div class="lbl" style="margin-top:4px">Don't break the chain</div>
+</div>
+
+<div style="padding:0 12px">
+  <div style="display:flex;gap:8px;margin-bottom:8px">
+    ${streakCard('Alcohol-free',alcS,'var(--blue)','🚫',alcS>0?'days running':'start today')}
+    ${streakCard('Exercises',exS,'var(--green)','💪',exS>0?'days running':'start today')}
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:8px">
+    ${streakCard('Protein hit',protS,'var(--amber)','🥩',protS>0?'days running':'start today')}
+    ${streakCard('Moved daily',moveS,'#BF5AF2','🚶',moveS>0?'days running':'start today')}
+  </div>
+</div>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+    <div class="lbl">14-day recovery score</div>
+    <div style="font-size:13px;font-weight:600;color:var(--t2)">avg ${avg}</div>
+  </div>
+  <svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="margin-top:8px;overflow:visible">
+    <polyline points="${pts}" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    ${(()=>{const parts=pts.split(' ');const last=parts[parts.length-1].split(',');return `<circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="var(--green)"/>`;})()}
+  </svg>
+</div>
+
+${wSetup?`
+<div class="card" style="border-color:#1D2A1D">
+  <div class="lbl" style="margin-bottom:12px">Set your weight goal</div>
+  <div style="font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:14px">Coming off Mounjaro means appetite may rebound. Log weekly and let the trend keep you honest. Enter today's weight to start.</div>
+  <div style="display:flex;gap:8px;align-items:flex-end">
+    <div style="flex:1"><div class="lbl-dim" style="margin-bottom:6px">Today (kg)</div><input type="number" id="wStart" placeholder="88" step="0.1"></div>
+    <div style="flex:1"><div class="lbl-dim" style="margin-bottom:6px">Target (kg)</div><input type="number" id="wTarget" value="80" step="0.1"></div>
+  </div>
+  <input type="hidden" id="fundIn" value="${CFG.fundGoal}">
+  <button class="tap" onclick="(function(){var s=parseFloat(document.getElementById('wStart').value);var t=parseFloat(document.getElementById('wTarget').value);if(s>0){CFG.weightStart=s;CFG.weights[todayKey()]=s;}if(t>0)CFG.weightTarget=t;saveCfg();renderStreaks();})()" style="width:100%;margin-top:14px;padding:13px;border-radius:12px;border:none;background:var(--green);color:#000;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer">Start tracking</button>
+</div>`:`
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+    <div class="lbl">Weight — target ${CFG.weightTarget}kg</div>
+    <div class="seg" onclick="(function(){document.getElementById('wInWrap').style.display=document.getElementById('wInWrap').style.display==='none'?'flex':'none';})()"><span style="background:var(--s2);color:#fff">+ Log</span></div>
+  </div>
+  <div style="display:flex;align-items:flex-end;gap:12px">
+    <div>
+      <div style="font-size:44px;font-weight:700;letter-spacing:-2px;line-height:1">${latestW?latestW.toFixed(1):'—'}<span style="font-size:15px;color:var(--t3);font-weight:500"> kg</span></div>
+      <div class="lbl-dim" style="margin-top:6px">${lostW>0?'▼ '+lostW.toFixed(1)+'kg lost':lostW<0?'▲ '+Math.abs(lostW).toFixed(1)+'kg up':'current'}</div>
+    </div>
+    <div style="margin-left:auto;text-align:right">
+      <div style="font-size:20px;font-weight:600;color:${toGo<=0?'var(--green)':'var(--amber)'}">${toGo<=0?'✓ Hit':toGo.toFixed(1)+'kg'}</div>
+      <div class="lbl-dim" style="margin-top:4px">${toGo<=0?'target reached':'to go'}</div>
+    </div>
+  </div>
+  <div id="wInWrap" style="display:none;gap:8px;margin-top:14px">
+    <input type="number" id="wIn" placeholder="Today's weight" step="0.1" style="flex:1">
+    <button class="tap" onclick="saveWeight();document.getElementById('wInWrap').style.display='none'" style="padding:0 20px;border-radius:10px;border:none;background:var(--green);color:#000;font-weight:600;font-family:inherit;cursor:pointer">Save</button>
+  </div>
+  ${(()=>{const bar=startW&&latestW?Math.max(0,Math.min(100,(startW-latestW)/(startW-CFG.weightTarget)*100)):0;return `<div class="pbar" style="margin-top:16px"><div class="pbf" style="width:${bar}%;background:var(--green)"></div></div><div style="display:flex;justify-content:space-between;margin-top:6px"><span class="lbl-dim">${startW}kg start</span><span class="lbl-dim">${CFG.weightTarget}kg goal</span></div>`;})()}
+</div>`}
+
+<div class="card" style="background:linear-gradient(135deg,#0D0D14,#0A0A0A);border-color:#1A1A2E">
+  <div style="display:flex;gap:12px;align-items:center">
+    <span style="font-size:26px">🏔️</span>
+    <div style="flex:1">
+      <div style="font-size:15px;font-weight:600">Why you're doing this</div>
+      <div style="font-size:12px;color:var(--t2);margin-top:3px;line-height:1.5">Back running. Lighter and stronger than before. ${CFG.fundGoal} in the bank. And PalmerSport waiting at the summit — already paid, just needs the knee you're building.</div>
+    </div>
+  </div>
+</div>
+<div style="height:6px"></div>
+</div>`;
+}
+</script>
+<script>
+function renderPlan(){
   const days=gd(),now=new Date();
   document.getElementById('view').innerHTML=
-`<div style="padding:max(14px,env(safe-area-inset-top)) 0 0">
-<div style="padding:8px 14px 14px">
-  <div style="font-size:24px;font-weight:800;color:#fff;letter-spacing:-.5px">Your plan</div>
+`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
+<div style="padding:8px 16px 14px">
+  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">The road back</div>
   <div class="lbl" style="margin-top:4px">May 2026 → July 2027 · 14 months</div>
 </div>
-${PH.map((p,i)=>{const cur=days>=p.start&&days<p.end;return`
-<div class="ph-block" style="border-left-color:${cur?p.c:'var(--s3)'};background:${cur?'var(--s2)':'var(--s1)'}">
-  <div style="display:flex;align-items:center;gap:7px">
-    <div style="width:6px;height:6px;border-radius:50%;background:${cur?p.c:'#2A2A2A'};flex-shrink:0"></div>
-    <span style="font-size:13px;font-weight:700;color:${cur?'#fff':'#444'};letter-spacing:.01em">${p.n.toUpperCase()}</span>
-    ${cur?`<span style="margin-left:auto;font-size:8px;font-weight:800;padding:3px 9px;border-radius:10px;background:${p.c};color:#000;letter-spacing:.1em">NOW</span>`:''}
+${PH.map((p,i)=>{const cur=days>=p.start&&days<p.end;const done=days>=p.end;return`
+<div style="border-radius:14px;padding:13px 15px;margin:0 12px 7px;background:${cur?'var(--s2)':'var(--s1)'};border:1px solid ${cur?p.c:'var(--line)'};border-left:3px solid ${cur?p.c:done?'#2A2A2A':'var(--s3)'};opacity:${done?.5:1}">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:7px;height:7px;border-radius:50%;background:${cur||done?p.c:'var(--s3)'};flex-shrink:0"></div>
+    <span style="font-size:13px;font-weight:600;color:${cur?'#fff':done?'var(--t2)':'var(--t2)'};letter-spacing:.01em">${p.n}</span>
+    ${cur?`<span style="margin-left:auto;font-size:8px;font-weight:700;padding:3px 9px;border-radius:9px;background:${p.c};color:#000;letter-spacing:.1em">NOW</span>`:done?`<span style="margin-left:auto;font-size:14px;color:${p.c}">✓</span>`:''}
   </div>
-  <div class="lbl" style="padding-left:13px;margin-top:3px;color:${cur?'#555':'#222'}">${PD[i]}</div>
-  ${cur?`<div style="font-size:12px;color:#666;padding-left:13px;margin-top:6px;line-height:1.4">${p.d}</div>`:''}
+  <div class="lbl-dim" style="padding-left:15px;margin-top:4px">${PD[i]}</div>
+  ${cur?`<div style="font-size:12px;color:#888;padding-left:15px;margin-top:7px;line-height:1.5">${p.d}</div>`:''}
 </div>`}).join('')}
-<div style="padding:10px 14px 6px"><div class="lbl">All milestones</div></div>
-${LM.map((m,i)=>{const d=df(m.date),past=d<-1;return`
-<div class="lm-row" style="opacity:${past?.2:1};border-color:var(--s3)">
-  <div style="flex:1"><div style="font-size:14px;font-weight:700;color:#fff;letter-spacing:.01em">${m.l}</div><div style="font-size:10px;color:var(--t3);margin-top:1px;letter-spacing:.04em">${m.s}</div></div>
-  <div style="text-align:right"><div style="font-size:11px;color:var(--t3);margin-bottom:2px">${ff(m.date)}</div>${!past?`<div style="font-size:12px;font-weight:700;color:${d<30?'#FF9F0A':'#555'};letter-spacing:-.3px">${d<=0?'Today':d<31?'In '+d+' days':d<365?'In '+Math.round(d/30.4)+' months':'In '+(d/365).toFixed(1)+' years'}</div>`:''}</div>
+
+<div style="padding:12px 16px 6px"><div class="lbl">Landmarks</div></div>
+${LM.map((m)=>{const d=df(m.date),past=d<-1;return`
+<div class="row" style="opacity:${past?.3:1};border-color:var(--line);${m.pk?'background:linear-gradient(90deg,rgba(191,90,242,.06),transparent)':''}">
+  <div style="flex:1">
+    <div style="font-size:15px;font-weight:${m.pk?'700':'600'};color:#fff;letter-spacing:.01em">${m.pk?'★ ':''}${m.l}</div>
+    <div class="lbl-dim" style="margin-top:2px;letter-spacing:.05em">${m.s}</div>
+  </div>
+  <div style="text-align:right">
+    <div style="font-size:11px;color:var(--t2);margin-bottom:2px">${ff(m.date)}</div>
+    ${!past?`<div style="font-size:12px;font-weight:600;color:${d<30?'var(--amber)':'var(--t2)'};letter-spacing:-.2px">${d<=0?'Today':d<31?'In '+d+' days':d<365?'In '+Math.round(d/30.4)+' months':'In '+(d/365).toFixed(1)+' yrs'}</div>`:'<div style="font-size:12px;color:var(--t3)">Done</div>'}
+  </div>
 </div>`}).join('')}
-<div style="height:8px"></div>
+<div style="height:6px"></div>
 </div>`;
 }
 
-function render(){if(TAB==='today')rToday();else if(TAB==='log')rLog();else rPlan();}
+function render(){
+  if(!CFG.weightStart&&!localStorage.getItem('rx3_skipSetup')&&TAB==='today'){
+    // first-run: still show today, weight prompt lives in streaks
+  }
+  if(TAB==='today')renderToday();
+  else if(TAB==='log')renderLog();
+  else if(TAB==='streaks')renderStreaks();
+  else renderPlan();
+}
 
 function sw(t){
   TAB=t;
   document.getElementById('scroll').scrollTop=0;
   const ph=gp(gd());
-  ['today','log','plan'].forEach(v=>{
+  ['today','log','streaks','plan'].forEach(v=>{
     const on=v===t;
-    document.getElementById('ni-'+v).style.opacity=on?1:.4;
-    document.getElementById('nl-'+v).style.color=on?ph.c:'#333';
+    const icon=document.getElementById('ni-'+v),lbl=document.getElementById('nl-'+v);
+    if(icon)icon.style.color=on?ph.c:'var(--t3)';
+    if(lbl)lbl.style.color=on?ph.c:'var(--t3)';
   });
   render();
 }
@@ -315,8 +537,9 @@ function sw(t){
 load();
 render();
 const ph0=gp(gd());
+document.getElementById('ni-today').style.color=ph0.c;
 document.getElementById('nl-today').style.color=ph0.c;
-document.getElementById('ni-today').style.opacity='1';
+['log','streaks','plan'].forEach(v=>{document.getElementById('ni-'+v).style.color='var(--t3)';document.getElementById('nl-'+v).style.color='var(--t3)';});
 
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
