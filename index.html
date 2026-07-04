@@ -11,21 +11,21 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <title>Recovery</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{--bg:#000;--s1:#0B0B0B;--s2:#131313;--s3:#1C1C1C;--line:#1A1A1A;--t:#FFF;--t2:#5A5A5A;--t3:#2E2E2E;--green:#00E676;--amber:#FF9F0A;--red:#FF453A;--blue:#0A84FF}
+:root{--bg:#000;--s1:#0B0B0B;--s2:#131313;--s3:#1C1C1C;--line:#181818;--t:#FFF;--t2:#5A5A5A;--t3:#2E2E2E;--green:#00E676;--amber:#FF9F0A;--red:#FF453A;--blue:#0A84FF;--purple:#BF5AF2}
 html,body{height:100%;background:var(--bg);overscroll-behavior:none}
-body{font-family:'Inter',-apple-system,sans-serif;color:var(--t);overflow:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--t);overflow:hidden;-webkit-font-smoothing:antialiased;font-weight:400;letter-spacing:-.01em}
 #app{height:100%;display:flex;flex-direction:column}
 #scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 #nav{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--line);display:flex;padding:7px 0 calc(7px + env(safe-area-inset-bottom));z-index:99}
 .nt{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;border:none;background:none;cursor:pointer;padding:3px 0;-webkit-user-select:none;user-select:none}
-.nt svg{width:21px;height:21px;stroke-width:1.6}
-.nt-lbl{font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-.lbl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t2)}
-.lbl-dim{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+.nt svg{width:20px;height:20px;stroke-width:1.5}
+.nt-lbl{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.lbl{font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--t2)}
+.lbl-dim{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--t3)}
 .card{background:var(--s1);border-radius:16px;padding:16px;margin:0 12px 8px;border:1px solid var(--line)}
 .pbar{background:var(--s3);border-radius:2px;height:2px;overflow:hidden}
 .pbf{height:2px;border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
@@ -36,16 +36,19 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--t);overflow:hidden
 .exr:last-child{border-bottom:none;padding-bottom:2px}
 input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:var(--s3);border-radius:2px;outline:none;cursor:pointer;margin:6px 0}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.6)}
-input[type=number]{background:var(--s2);border:1px solid var(--s3);border-radius:10px;padding:10px 12px;color:#fff;font-family:inherit;font-size:20px;font-weight:600;width:100%;outline:none;-webkit-appearance:none}
-textarea{width:100%;border:none;outline:none;font-family:inherit;font-size:14px;color:#999;resize:none;min-height:70px;background:transparent;line-height:1.55;font-weight:400}
+input[type=number],input[type=text]{background:var(--s2);border:1px solid var(--s3);border-radius:10px;padding:11px 12px;color:#fff;font-family:inherit;font-size:15px;font-weight:400;width:100%;outline:none;-webkit-appearance:none}
+input[type=number]{font-size:20px;font-weight:500}
+textarea{width:100%;border:none;outline:none;font-family:inherit;font-size:14px;color:#bbb;resize:none;min-height:44px;background:transparent;line-height:1.55;font-weight:400}
 textarea::placeholder{color:var(--t3)}
 .seg{display:flex;background:var(--s3);border-radius:9px;padding:2px;cursor:pointer;-webkit-user-select:none;user-select:none}
-.seg span{font-size:9px;font-weight:600;padding:4px 9px;border-radius:7px;transition:all .2s;letter-spacing:.04em;white-space:nowrap}
+.seg span{font-size:9px;font-weight:600;padding:4px 9px;border-radius:7px;transition:all .2s;letter-spacing:.03em;white-space:nowrap}
 .tap{cursor:pointer;-webkit-user-select:none;user-select:none;transition:transform .1s}
-.tap:active{transform:scale(.96)}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.rise{animation:rise .4s cubic-bezier(.2,.8,.2,1) both}
+.tap:active{transform:scale(.97)}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.rise{animation:rise .35s cubic-bezier(.2,.8,.2,1) both}
 .ringwrap{position:relative;display:inline-flex;align-items:center;justify-content:center}
+.diaryin{background:var(--s2);border:1px solid var(--s3);border-radius:10px;padding:10px 12px;margin-bottom:7px}
+.diaryin textarea{min-height:22px;font-size:14px}
 </style>
 </head>
 <body>
@@ -54,15 +57,16 @@ textarea::placeholder{color:var(--t3)}
   <nav id="nav">
     <button class="nt" onclick="sw('today')"><svg id="ni-today" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1V9.5z"/></svg><span class="nt-lbl" id="nl-today">Today</span></button>
     <button class="nt" onclick="sw('log')"><svg id="ni-log" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span class="nt-lbl" id="nl-log">Log</span></button>
-    <button class="nt" onclick="sw('streaks')"><svg id="ni-streaks" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s0 2 2 2 1-4 2-5 0 0 0 0z"/></svg><span class="nt-lbl" id="nl-streaks">Streaks</span></button>
+    <button class="nt" onclick="sw('streaks')"><svg id="ni-streaks" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s0 2 2 2 1-4 2-5z"/></svg><span class="nt-lbl" id="nl-streaks">Momentum</span></button>
+    <button class="nt" onclick="sw('build')"><svg id="ni-build" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><span class="nt-lbl" id="nl-build">Build</span></button>
     <button class="nt" onclick="sw('plan')"><svg id="ni-plan" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span class="nt-lbl" id="nl-plan">Plan</span></button>
   </nav>
 </div>
 <script>
-const SG=new Date('2026-07-20T06:00:00'),PG=150,CPC=52.65;
+const SG=new Date('2026-07-20T06:00:00'),PG=150,CPC=52.65,ALC_SAVE=12;
 const gd=()=>Math.floor((Date.now()-SG)/86400000);
 const todayKey=()=>new Date().toISOString().slice(0,10);
-const tk=()=>'rx3_'+todayKey();
+const tk=()=>'rx4_'+todayKey();
 const dOff=o=>{const d=new Date();d.setDate(d.getDate()-o);return d.toISOString().slice(0,10)};
 const df=s=>{const[y,m,d]=s.split('-');return Math.ceil((new Date(y,m-1,d)-new Date())/86400000)};
 const fsh=s=>{const[y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'})};
@@ -70,20 +74,30 @@ const ff=s=>{const[y,m,d]=s.split('-');return new Date(y,m-1,d).toLocaleDateStri
 const fm=n=>'£'+Math.floor(n).toLocaleString('en-GB');
 
 const PH=[
-  {id:'preop',n:'Pre-surgery prep',s:'Pre-op',c:'#FF6B35',start:-9999,end:0,ek:'preop',d:'Build strength, cut swelling, arrive light. Every day now pays off later.'},
-  {id:'p1',n:'Protection',s:'Phase 1',c:'#FF453A',start:0,end:42,ek:'ph1',d:'Non-weight-bearing. Protect the repair. Ice, elevate, activate.'},
+  {id:'preop',n:'Pre-surgery prep',s:'Pre-op',c:'#FF6B35',start:-9999,end:0,ek:'preop',d:'Build strength, cut swelling, arrive light. Every day now pays off on the table.'},
+  {id:'p1',n:'Protection',s:'Phase 1',c:'#FF453A',start:0,end:42,ek:'ph1',d:'Non-weight-bearing. Four repairs knitting in. Protect them — ice, elevate, activate.'},
   {id:'p2',n:'Early mobilisation',s:'Phase 2',c:'#FF9F0A',start:42,end:90,ek:'ph2',d:'Weight bearing begins. Rebuild range. Careful, progressive loading.'},
-  {id:'p3',n:'Strength building',s:'Phase 3',c:'#30D158',start:90,end:180,ek:'ph3',d:'Jogging at 3 months. Gym work. Real, visible progress.'},
+  {id:'p3',n:'Strength building',s:'Phase 3',c:'#30D158',start:90,end:180,ek:'ph3',d:'Jogging at 3 months. Gym work. Progress you can finally feel.'},
   {id:'p4',n:'Sport preparation',s:'Phase 4',c:'#0A84FF',start:180,end:270,ek:'ph4',d:'Running. Agility. Getting your body back.'},
-  {id:'p5',n:'Return to sport',s:'Phase 5',c:'#BF5AF2',start:270,end:365,ek:'ph5',d:'Football. PalmerSport. Everything you have been working for.'},
+  {id:'p5',n:'Return to sport',s:'Phase 5',c:'#BF5AF2',start:270,end:365,ek:'ph5',d:'Football. PalmerSport. Everything this was for.'},
 ];
 const PD=['Now — 19 Jul 2026','20 Jul — 31 Aug 2026','1 Sep — 17 Oct 2026','18 Oct 2026 — 17 Jan 2027','18 Jan — 17 Apr 2027','18 Apr — 20 Jul 2027'];
 const gp=d=>PH.find(p=>d>=p.start&&d<p.end)||PH[PH.length-1];
 
+// Rotating status subtitles, phase-aware, in Steve's dry voice
+const SUBS={
+  preop:['Arrive light, arrive strong.','The fitter you go in, the faster you come out.','Nothing to do now but prepare well.','Bank the strength. You\'ll want it.'],
+  ph1:['Four repairs, knitting in. Leave them be.','The hardest weeks. They pass.','Do less, heal more. This once.','The graft is weakest now. Protect it.'],
+  ph2:['Weight through it again. Slowly.','Range first, strength later.','Small gains count double now.','The knee remembers. Remind it gently.'],
+  ph3:['Jogging soon. You\'ve earned it.','Now it starts giving something back.','Strength returns. Bank it.','The body you\'re rebuilding is better than before.'],
+  ph4:['Running. Properly.','Nearly you again.','Agility now. The fun part.','Summer 2027 is close enough to see.'],
+  ph5:['Football. PalmerSport. All of it.','This is what it was for.','Stronger than before the injury.','You did the whole year. Go.'],
+};
+
 const EX={
   preop:[{id:'qc',l:'Quad contractions',d:'3×10, hold 5s'},{id:'ap',l:'Ankle pumps',d:'Every waking hour'},{id:'ice',l:'Ice knee 4×',d:'20 min on, 40 off'},{id:'elev',l:'Leg elevated',d:'Above heart — BoneFoam'},{id:'ub',l:'Upper body session',d:'Battle ropes / seated weights'}],
-  ph1:[{id:'ap',l:'Ankle pumps',d:'Every hour — prevents DVT'},{id:'qc',l:'Quad contractions',d:'3×10, hold 5s, 3× today'},{id:'slr',l:'Straight leg raises',d:'3×10, 2× today'},{id:'ice',l:'Ice 4× daily',d:'20 min sessions'},{id:'elev',l:'Leg elevated',d:'Heel on BoneFoam, knee free'},{id:'hs',l:'Heel slides',d:'Gentle — 0-90° max'}],
-  ph2:[{id:'wb',l:'Weight-bearing walk',d:'Progressive with crutches'},{id:'bike',l:'Stationary bike',d:'Low resistance, 10-20 min'},{id:'vmo',l:'VMO activation',d:'Inner quad focus'},{id:'rom',l:'Range of motion',d:'Target 0-120° by wk 12'},{id:'bal',l:'Single-leg balance',d:'Good leg only'},{id:'ice',l:'Ice after exercise',d:'20 min post-activity'}],
+  ph1:[{id:'ap',l:'Ankle pumps',d:'Every hour — prevents DVT'},{id:'qc',l:'Quad contractions',d:'3×10, hold 5s, 3× today'},{id:'slr',l:'Straight leg raises',d:'3×10, 2× today'},{id:'ice',l:'Ice 4× daily',d:'20 min sessions'},{id:'elev',l:'Leg elevated',d:'Heel on BoneFoam, knee free'},{id:'hs',l:'Heel slides',d:'Gentle — within limit'}],
+  ph2:[{id:'wb',l:'Weight-bearing walk',d:'Progressive with crutches'},{id:'bike',l:'Stationary bike',d:'Low resistance, 10-20 min'},{id:'vmo',l:'VMO activation',d:'Inner quad focus'},{id:'rom',l:'Range of motion',d:'Target 0-120° by wk 12'},{id:'bal',l:'Single-leg balance',d:'Good leg first'},{id:'ice',l:'Ice after exercise',d:'20 min post-activity'}],
   ph3:[{id:'jw',l:'Jog-walk intervals',d:'1 min jog, 2 min walk'},{id:'lp',l:'Leg press 0-90°',d:'No deeper than 90°'},{id:'hc',l:'Hamstring curls',d:'Graft protection'},{id:'prop',l:'Proprioception',d:'Balance board work'},{id:'swim',l:'Swimming',d:'Freestyle only'}],
   ph4:[{id:'run',l:'Running session',d:'Build distance and pace'},{id:'agil',l:'Agility drills',d:'Lateral movement'},{id:'gym',l:'Full gym session',d:'Lower body programme'},{id:'sport',l:'Sport drills',d:'Football with physio'}],
   ph5:[{id:'sport',l:'Sport training',d:'Return to football'},{id:'ps',l:'PalmerSport prep',d:'Track day conditioning'},{id:'maint',l:'Strength maintenance',d:'Keep the graft strong'}],
@@ -109,37 +123,38 @@ const FOODS=[{l:'Chicken 150g',g:35},{l:'Whey shake',g:25},{l:'2 eggs',g:12},{l:
 const SC=[{k:'vitc',l:'Vit C',c:'#FF9F0A'},{k:'omega3',l:'Omega 3',c:'#0A84FF'},{k:'multi',l:'Multi',c:'#30D158'}];
 const ML=['','Very low','Low','OK','Good','Great'];
 
-const DS={exercises:{},symptoms:{pain:3,swelling:2,rom:3,mood:3,sleep:3,energy:3},protein:0,supplements:{vitc:false,omega3:false,multi:false},brace:true,notes:'',alcoholFree:null,movedToday:null,scrollOk:null};
-const CFG_DEF={weightStart:null,weightTarget:80,fundGoal:'Swiss holiday',commutePerWeek:1,weights:{}};
+// Surgery detail — the four-part reconstruction
+const SURGERY_PARTS=[
+  {n:'ACL reconstruction',d:'Rebuilt using a graft from your quad tendon'},
+  {n:'Meniscus root repair',d:'Torn clean off the bone — pinned back into place'},
+  {n:'MCL repair',d:'Medial ligament tear repaired'},
+  {n:'Chondral fixation',d:'Loose cartilage fragment retrieved and reattached — protects against bone-on-bone'},
+];
+
+const DS={exercises:{},customEx:[],symptoms:{pain:3,swelling:2,rom:3,mood:3,sleep:3,energy:3},moodLogged:false,protein:0,supplements:{vitc:false,omega3:false,multi:false},brace:true,notes:'',alcoholFree:null,movedToday:null,scrollOk:null,diary:{good1:'',good2:'',good3:'',smile:'',free:''},builtToday:''};
+const CFG_DEF={weightStart:null,weightTarget:80,fundGoal:'Swiss holiday',commutePerWeek:1,weights:{},onMounjaro:false,physioStatus:'planning',physioLog:[],physioNotes:'',projects:[]};
 
 let S={...DS},CFG={...CFG_DEF},TAB='today';
 </script>
 <script>
 function load(){
   try{const r=localStorage.getItem(tk());if(r)S={...DS,...JSON.parse(r)};}catch(e){}
-  try{const c=localStorage.getItem('rx3_cfg');if(c)CFG={...CFG_DEF,...JSON.parse(c)};}catch(e){}
+  if(!S.diary)S.diary={good1:'',good2:'',good3:'',smile:'',free:''};
+  try{const c=localStorage.getItem('rx4_cfg');if(c)CFG={...CFG_DEF,...JSON.parse(c)};}catch(e){}
 }
 function save(){try{localStorage.setItem(tk(),JSON.stringify(S));}catch(e){}}
-function saveCfg(){try{localStorage.setItem('rx3_cfg',JSON.stringify(CFG));}catch(e){}}
-function getDay(o){try{const r=localStorage.getItem('rx3_'+dOff(o));return r?JSON.parse(r):null;}catch(e){return null;}}
-function getMoney(){const d=gd();if(d<=0)return 0;return Math.floor((d/7)*CFG.commutePerWeek*CPC);}
+function saveCfg(){try{localStorage.setItem('rx4_cfg',JSON.stringify(CFG));}catch(e){}}
+function getDay(o){try{const r=localStorage.getItem('rx4_'+dOff(o));return r?JSON.parse(r):null;}catch(e){return null;}}
 
-// Recovery score 0-100: exercises 35, protein 20, moved 15, alcohol-free 15, mood logged 15
-function scoreFor(st,dayNum){
-  if(!st)return null;
-  const ph=gp(dayNum);const exs=EX[ph.ek]||[];
-  const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;
-  const exPct=exs.length?done/exs.length:0;
-  let sc=0;
-  sc+=exPct*35;
-  sc+=Math.min((st.protein||0)/PG,1)*20;
-  sc+=st.movedToday?15:0;
-  sc+=st.alcoholFree?15:0;
-  sc+=(st.symptoms&&st.symptoms.moodLogged)?15:0;
-  return Math.round(sc);
-}
+function allEx(){const base=EX[gp(gd()).ek]||[];return base.concat(CFG.physioEx||[]);}
+function commuteMoney(){const d=gd();if(d<=0)return 0;return Math.floor((d/7)*CFG.commutePerWeek*CPC);}
+function alcoholMoney(){let n=0;if(S.alcoholFree)n++;for(let i=1;i<=400;i++){const st=getDay(i);if(st&&st.alcoholFree)n++;else if(st&&st.alcoholFree===false)continue;}return n*ALC_SAVE;}
+// simpler: count all alcohol-free days ever logged
+function alcoholFreeDays(){let n=S.alcoholFree?1:0;for(let i=1;i<=400;i++){const st=getDay(i);if(st&&st.alcoholFree)n++;}return n;}
+function fundTotal(){return commuteMoney()+alcoholFreeDays()*ALC_SAVE;}
+
 function todayScore(){
-  const ph=gp(gd());const exs=EX[ph.ek]||[];
+  const exs=allEx();
   const done=exs.filter(e=>S.exercises[e.id]).length;
   const exPct=exs.length?done/exs.length:0;
   let sc=0;
@@ -150,140 +165,145 @@ function todayScore(){
   sc+=S.moodLogged?15:0;
   return Math.round(sc);
 }
-
-// Streak counters — count consecutive days (including today if done) going back
+function scoreFor(st,dn){
+  if(!st)return 0;
+  const ph=gp(dn);const exs=(EX[ph.ek]||[]).concat(CFG.physioEx||[]);
+  const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;
+  const exPct=exs.length?done/exs.length:0;
+  let sc=0;sc+=exPct*35;sc+=Math.min((st.protein||0)/PG,1)*20;sc+=st.movedToday?15:0;sc+=st.alcoholFree?15:0;sc+=st.moodLogged?15:0;
+  return Math.round(sc);
+}
 function streak(check){
   let n=0;
-  // today
-  if(check(S,gd()))n++;else{
-    // if today not yet done, start from yesterday so streak isn't zeroed mid-day
-    for(let i=1;i<=400;i++){const st=getDay(i);if(st&&check(st,gd()-i))n++;else break;}
-    return n;
-  }
+  if(check(S,gd()))n++;
+  else{for(let i=1;i<=400;i++){const st=getDay(i);if(st&&check(st,gd()-i))n++;else break;}return n;}
   for(let i=1;i<=400;i++){const st=getDay(i);if(st&&check(st,gd()-i))n++;else break;}
   return n;
 }
 const chkAlc=st=>st.alcoholFree===true;
-const chkEx=(st,dn)=>{const ph=gp(dn);const exs=EX[ph.ek]||[];if(!exs.length)return false;const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;return done/exs.length>=0.8;};
+const chkEx=(st,dn)=>{const ph=gp(dn);const exs=(EX[ph.ek]||[]).concat(CFG.physioEx||[]);if(!exs.length)return false;const done=exs.filter(e=>st.exercises&&st.exercises[e.id]).length;return done/exs.length>=0.8;};
 const chkProt=st=>(st.protein||0)>=PG;
 const chkMove=st=>st.movedToday===true;
+function scoreHistory(n){const arr=[];for(let i=n-1;i>=1;i--){arr.push(scoreFor(getDay(i),gd()-i));}arr.push(todayScore());return arr;}
 
-function scoreHistory(n){
-  const arr=[];
-  for(let i=n-1;i>=1;i--){const st=getDay(i);arr.push(scoreFor(st,gd()-i)||0);}
-  arr.push(todayScore());
-  return arr;
+// F1 drift detection — returns array of gentle flags
+function drifts(){
+  const out=[];
+  // protein: 3 days under target
+  let pMiss=0;for(let i=1;i<=3;i++){const st=getDay(i);if(st&&(st.protein||0)<PG*0.7)pMiss++;}
+  if(pMiss>=3)out.push({t:'Protein\'s been light 3 days running',s:'Tissue repair needs it. Easy win today.',c:'var(--amber)'});
+  // sleep: 3 days poor
+  let slMiss=0;for(let i=1;i<=3;i++){const st=getDay(i);if(st&&st.symptoms&&(st.symptoms.sleep||3)<=2)slMiss++;}
+  if(slMiss>=3)out.push({t:'Sleep\'s been rough for a few days',s:'It usually shows up in mood next. Worth an early night.',c:'var(--purple)'});
+  // mood: 3 days low
+  let mMiss=0;for(let i=1;i<=3;i++){const st=getDay(i);if(st&&st.symptoms&&(st.symptoms.mood||3)<=2)mMiss++;}
+  if(mMiss>=3)out.push({t:'Mood\'s been low this week',s:'Normal in a hard phase. A walk outside and the diary help more than they should.',c:'var(--blue)'});
+  return out;
 }
 
 function tex(id){
   S.exercises[id]=!S.exercises[id];save();
-  const days=gd(),ph=gp(days),exs=EX[ph.ek]||[];
+  const exs=allEx(),ph=gp(gd());
   const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,pct=tot?Math.round(done/tot*100):0;
   const dot=document.getElementById('ex-'+id);
   if(dot){dot.style.background=S.exercises[id]?ph.c:'transparent';dot.style.borderColor=S.exercises[id]?ph.c:'var(--t3)';dot.innerHTML=S.exercises[id]?'<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':'';}
   const nm=document.getElementById('exn-'+id);if(nm){nm.style.color=S.exercises[id]?'var(--t3)':'#fff';nm.style.textDecoration=S.exercises[id]?'line-through':'none';}
-  updateScoreRing();
-  const xb=document.getElementById('xbar'),xc=document.getElementById('xcnt');
-  if(xb)xb.style.width=pct+'%';if(xc)xc.textContent=done+'/'+tot;
+  const xb=document.getElementById('xbar'),xc=document.getElementById('xcnt');if(xb)xb.style.width=pct+'%';if(xc)xc.textContent=done+'/'+tot;
+  updateRing();
 }
-function updateScoreRing(){
-  const sc=todayScore();
-  const el=document.getElementById('scoreNum');if(el)el.textContent=sc;
-  const ring=document.getElementById('scoreArc');
-  if(ring){const circ=2*Math.PI*52;ring.style.strokeDashoffset=circ*(1-sc/100);}
-}
+function updateRing(){const sc=todayScore();const el=document.getElementById('scoreNum');if(el)el.textContent=sc;const ring=document.getElementById('scoreArc');if(ring){const circ=2*Math.PI*52;ring.style.strokeDashoffset=circ*(1-sc/100);const col=sc>=80?'var(--green)':sc>=50?'var(--amber)':sc>0?'#FF6B35':'var(--t3)';ring.style.stroke=col;if(el)el.style.color=col;}}
 function tgl(k){S[k]=!S[k];save();renderToday();}
-function setTri(k,v){S[k]=(S[k]===v?null:v);if(k==='moodLoggedProxy'){}save();renderToday();}
 function tsupp(k,el){S.supplements[k]=!S.supplements[k];save();const sc=SC.find(s=>s.k===k);if(el){el.style.background=S.supplements[k]?sc.c:'transparent';el.style.borderColor=S.supplements[k]?sc.c:'var(--s3)';el.style.color=S.supplements[k]?'#000':'var(--t2)';el.textContent=(S.supplements[k]?'✓ ':'')+sc.l;}}
-function addP(g){S.protein=Math.max(0,Math.min(300,S.protein+g));save();const n=document.getElementById('pnum'),b=document.getElementById('pb');if(n){n.textContent=S.protein;n.style.color=S.protein>=PG?'var(--green)':'#fff';}if(b){b.style.width=Math.min(S.protein/PG*100,100)+'%';b.style.background=S.protein>=PG?'var(--green)':'var(--blue)';}updateScoreRingSilent();}
-function updateScoreRingSilent(){const el=document.getElementById('scoreNumLog');}
+function addP(g){S.protein=Math.max(0,Math.min(300,S.protein+g));save();const n=document.getElementById('pnum'),b=document.getElementById('pb');if(n){n.textContent=S.protein;n.style.color=S.protein>=PG?'var(--green)':'#fff';}if(b){b.style.width=Math.min(S.protein/PG*100,100)+'%';b.style.background=S.protein>=PG?'var(--green)':'var(--blue)';}}
 function uNote(v){S.notes=v;save();}
-function uSym(k,v){S.symptoms[k]=parseInt(v);if(k==='mood'){S.moodLogged=true;}save();const sym=SYM.find(s=>s.k===k);if(sym){const el=document.getElementById('sv-'+k);const tag=sym.lb[parseInt(v)]||v;if(el)el.textContent=v+(sym.min===0?'/10':'/5')+' · '+tag;}}
+function uSym(k,v){S.symptoms[k]=parseInt(v);if(k==='mood')S.moodLogged=true;save();const sym=SYM.find(s=>s.k===k);if(sym){const el=document.getElementById('sv-'+k);const tag=sym.lb[parseInt(v)]||v;if(el)el.textContent=v+(sym.min===0?'/10':'/5')+' · '+tag;}}
+function uDiary(k,v){S.diary[k]=v;save();}
+function uBuilt(v){S.builtToday=v;save();}
 function setCom(n){CFG.commutePerWeek=n;saveCfg();renderToday();}
 function saveWeight(){const v=parseFloat(document.getElementById('wIn').value);if(v>0){CFG.weights[todayKey()]=v;if(!CFG.weightStart)CFG.weightStart=v;saveCfg();renderStreaks();}}
-function setupSubmit(){const s=parseFloat(document.getElementById('wStart').value);const t=parseFloat(document.getElementById('wTarget').value);const g=document.getElementById('fundIn').value.trim();if(s>0)CFG.weightStart=s;CFG.weights[todayKey()]=s;if(t>0)CFG.weightTarget=t;if(g)CFG.fundGoal=g;saveCfg();render();}
+function toggleMounjaro(){CFG.onMounjaro=!CFG.onMounjaro;saveCfg();renderStreaks();}
+function setPhysio(st){CFG.physioStatus=st;saveCfg();renderBuild();}
+function addPhysioSession(){const d=document.getElementById('psDate').value||todayKey();CFG.physioLog=CFG.physioLog||[];CFG.physioLog.unshift({date:d,note:document.getElementById('psNote').value||''});saveCfg();renderBuild();}
+function uPhysioNotes(v){CFG.physioNotes=v;saveCfg();}
+function addProject(){const v=document.getElementById('projIn').value.trim();if(v){CFG.projects=CFG.projects||[];CFG.projects.unshift({t:v,done:false,date:todayKey()});saveCfg();renderBuild();}}
+function toggleProject(i){CFG.projects[i].done=!CFG.projects[i].done;saveCfg();renderBuild();}
+function delProject(i){CFG.projects.splice(i,1);saveCfg();renderBuild();}
+function setupSubmit(){const s=parseFloat(document.getElementById('wStart').value);const t=parseFloat(document.getElementById('wTarget').value);if(s>0){CFG.weightStart=s;CFG.weights[todayKey()]=s;}if(t>0)CFG.weightTarget=t;saveCfg();renderStreaks();}
 </script>
 <script>
 function triBtn(active,label,color,key,icon){
   return `<div class="tap" onclick="tgl('${key}')" style="flex:1;padding:12px 8px;border-radius:12px;border:1px solid ${active?color:'var(--s3)'};background:${active?color:'transparent'};display:flex;flex-direction:column;align-items:center;gap:5px;transition:all .18s">
     <span style="font-size:17px">${icon}</span>
-    <span style="font-size:11px;font-weight:600;color:${active?'#000':'var(--t2)'};letter-spacing:.02em">${label}</span>
+    <span style="font-size:11px;font-weight:500;color:${active?'#000':'var(--t2)'};letter-spacing:0">${label}</span>
   </div>`;
 }
+function pickSub(ek){const arr=SUBS[ek]||[''];const idx=Math.abs(gd())%arr.length;return arr[idx];}
 
 function renderToday(){
-  const days=gd(),ph=gp(days),exs=EX[ph.ek]||[];
+  const days=gd(),ph=gp(days),exs=allEx();
   const done=exs.filter(e=>S.exercises[e.id]).length,tot=exs.length,exPct=tot?Math.round(done/tot*100):0;
-  const protPct=Math.min(Math.round(S.protein/PG*100),100);
   const sc=todayScore();
-  const dayStr=days<0?'T\u2212'+Math.abs(days):'DAY '+days;
-  const daySub=days<0?'until surgery':'post-op · '+ph.s;
-  const money=getMoney();
+  const bigNum=days<0?Math.abs(days):days;
+  const status=days<0?(Math.abs(days)===1?'1 day out':Math.abs(days)+' days out'):(days===0?'Surgery day':'Day '+days);
+  const sub=pickSub(ph.ek);
+  const money=fundTotal();
   const now=new Date();
   const upcoming=LM.filter(m=>{const[y,mo,d]=m.date.split('-');return new Date(y,mo-1,d)>=now;});
   const nextLM=upcoming[0];
-  const hr=new Date().getHours();
-  const eve=hr>=18;
+  const hr=now.getHours(),eve=hr>=18;
   const circ=2*Math.PI*52;
   const scColor=sc>=80?'var(--green)':sc>=50?'var(--amber)':sc>0?'#FF6B35':'var(--t3)';
-
-  // alcohol streak for headline
   const alcStreak=streak(chkAlc);
+  const fl=drifts();
 
   document.getElementById('view').innerHTML=
-`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
+`<div class="rise" style="padding:max(18px,env(safe-area-inset-top)) 0 0">
 
-<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 16px 2px">
-  <div>
-    <div style="font-size:34px;font-weight:700;letter-spacing:-1.5px;line-height:1">${dayStr}</div>
-    <div class="lbl" style="margin-top:3px">${daySub}</div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding:4px 16px 2px">
+  <div style="flex:1;padding-right:12px">
+    <div style="font-size:30px;font-weight:600;letter-spacing:-1.2px;line-height:1.05">${status}</div>
+    <div style="font-size:13px;color:var(--t2);margin-top:6px;line-height:1.4;font-weight:400">${sub}</div>
   </div>
   <div class="ringwrap tap" onclick="sw('log')">
-    <svg width="118" height="118" viewBox="0 0 118 118">
-      <circle cx="59" cy="59" r="52" fill="none" stroke="var(--s3)" stroke-width="6"/>
-      <circle id="scoreArc" cx="59" cy="59" r="52" fill="none" stroke="${scColor}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-sc/100)}" transform="rotate(-90 59 59)" style="transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1)"/>
+    <svg width="112" height="112" viewBox="0 0 112 112">
+      <circle cx="56" cy="56" r="52" fill="none" stroke="var(--s3)" stroke-width="5"/>
+      <circle id="scoreArc" cx="56" cy="56" r="52" fill="none" stroke="${scColor}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-sc/100)}" transform="rotate(-90 56 56)" style="transition:stroke-dashoffset .6s cubic-bezier(.4,0,.2,1)"/>
     </svg>
     <div style="position:absolute;text-align:center">
-      <div id="scoreNum" style="font-size:32px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${scColor}">${sc}</div>
-      <div class="lbl-dim" style="margin-top:1px;font-size:8px">Today</div>
+      <div id="scoreNum" style="font-size:30px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:${scColor}">${sc}</div>
+      <div class="lbl-dim" style="margin-top:2px;font-size:8px">Today</div>
     </div>
   </div>
 </div>
 
-<div style="padding:0 16px;margin-top:2px">
+${fl.length?`<div style="padding:12px 16px 0">${fl.slice(0,1).map(f=>`<div style="background:var(--s1);border:1px solid var(--line);border-left:2px solid ${f.c};border-radius:12px;padding:12px 14px"><div style="font-size:13px;font-weight:500;color:#ddd">${f.t}</div><div style="font-size:12px;color:var(--t2);margin-top:3px;line-height:1.45">${f.s}</div></div>`).join('')}</div>`:''}
+
+<div style="padding:14px 16px 0">
   <div class="lbl" style="margin-bottom:9px">Daily habits</div>
-  <div style="display:flex;gap:8px;margin-bottom:8px">
-    ${triBtn(S.movedToday===true,'Moved / outside','var(--green)','movedToday','🚶')}
-    ${triBtn(S.alcoholFree===true,alcStreak>0?'Alcohol-free · '+alcStreak:'Alcohol-free','var(--blue)','alcoholFree','🚫')}
-    ${triBtn(S.scrollOk===true,'Off the phone','#BF5AF2','scrollOk','📵')}
+  <div style="display:flex;gap:8px">
+    ${triBtn(S.movedToday===true,'Moved','var(--green)','movedToday','🚶')}
+    ${triBtn(S.alcoholFree===true,alcStreak>0?'Dry · '+alcStreak:'Alcohol-free','var(--blue)','alcoholFree','🚫')}
+    ${triBtn(S.scrollOk===true,'Off phone','var(--purple)','scrollOk','📵')}
   </div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:12px">
-  <div style="padding:16px 16px 14px;border-right:1px solid var(--line)">
-    <div class="lbl" style="margin-bottom:8px">Swiss fund</div>
-    <div style="font-size:32px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${money>0?'var(--green)':'var(--t3)'}">${money>0?fm(money):'£0'}</div>
-    <div style="display:flex;align-items:center;gap:6px;margin-top:7px">
-      <span class="lbl-dim">${days>0?'saved so far':'from 20 Jul'}</span>
-      ${days>0?`<div class="seg" onclick="setCom(CFG.commutePerWeek===1?2:1)" style="margin-left:auto">
-        <span style="background:${CFG.commutePerWeek===1?'#fff':'transparent'};color:${CFG.commutePerWeek===1?'#000':'var(--t3)'}">1×</span>
-        <span style="background:${CFG.commutePerWeek===2?'#fff':'transparent'};color:${CFG.commutePerWeek===2?'#000':'var(--t3)'}">2×</span>
-      </div>`:''}
-    </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:14px">
+  <div class="tap" onclick="sw('streaks')" style="padding:15px 16px 13px;border-right:1px solid var(--line)">
+    <div class="lbl" style="margin-bottom:8px">${CFG.fundGoal} fund</div>
+    <div style="font-size:30px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:${money>0?'var(--green)':'var(--t3)'}">${money>0?fm(money):'£0'}</div>
+    <div class="lbl-dim" style="margin-top:7px">commute + dry days</div>
   </div>
-  <div class="tap" onclick="sw('plan')" style="padding:16px 16px 14px">
+  <div class="tap" onclick="sw('plan')" style="padding:15px 16px 13px">
     <div class="lbl" style="margin-bottom:8px">Next up</div>
-    ${nextLM?`<div style="font-size:20px;font-weight:600;letter-spacing:-.5px;line-height:1.1">${nextLM.l}</div>
-    <div style="display:flex;align-items:baseline;gap:5px;margin-top:7px">
-      <span style="font-size:15px;font-weight:600;color:${df(nextLM.date)<30?'var(--amber)':'#fff'}">${df(nextLM.date)<=0?'Today':df(nextLM.date)<31?df(nextLM.date)+' days':Math.round(df(nextLM.date)/30.4)+' months'}</span>
-    </div>`:'<div style="font-size:18px;font-weight:600">Complete 🎉</div>'}
+    ${nextLM?`<div style="font-size:19px;font-weight:500;letter-spacing:-.5px;line-height:1.1">${nextLM.l}</div>
+    <div style="font-size:14px;font-weight:500;color:${df(nextLM.date)<30?'var(--amber)':'var(--t2)'};margin-top:7px">${df(nextLM.date)<=0?'Today':df(nextLM.date)<31?df(nextLM.date)+' days':Math.round(df(nextLM.date)/30.4)+' months'}</div>`:'<div style="font-size:17px;font-weight:500">Complete 🎉</div>'}
   </div>
 </div>
 
 <div style="padding:14px 16px 6px">
   <div style="display:flex;align-items:center;gap:8px">
     <div style="width:6px;height:6px;border-radius:50%;background:${ph.c}"></div>
-    <span style="font-size:12px;font-weight:600;color:${ph.c};letter-spacing:.02em">${ph.s.toUpperCase()}</span>
+    <span style="font-size:12px;font-weight:500;color:${ph.c};letter-spacing:.02em">${ph.s.toUpperCase()}</span>
     <div class="seg" onclick="tgl('brace')" style="margin-left:auto">
       <span style="background:${!S.brace?'var(--s2)':'transparent'};color:${!S.brace?'#fff':'var(--t3)'}">No brace</span>
       <span style="background:${S.brace?ph.c:'transparent'};color:${S.brace?'#000':'var(--t3)'}">Brace on</span>
@@ -295,7 +315,7 @@ function renderToday(){
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
     <div class="lbl">Today's exercises</div>
-    <div style="font-size:13px;font-weight:600;color:${exPct===100?ph.c:'var(--t2)'}"><span id="xcnt">${done}/${tot}</span></div>
+    <div style="font-size:13px;font-weight:500;color:${exPct===100?ph.c:'var(--t2)'}"><span id="xcnt">${done}/${tot}</span></div>
   </div>
   <div class="pbar" style="margin-bottom:12px"><div id="xbar" class="pbf" style="width:${exPct}%;background:${ph.c}"></div></div>
   ${exs.map(ex=>`
@@ -304,155 +324,173 @@ function renderToday(){
       ${S.exercises[ex.id]?'<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}
     </div>
     <div style="flex:1">
-      <div id="exn-${ex.id}" style="font-size:14px;font-weight:500;color:${S.exercises[ex.id]?'var(--t3)':'#fff'};text-decoration:${S.exercises[ex.id]?'line-through':'none'};line-height:1.3">${ex.l}</div>
+      <div id="exn-${ex.id}" style="font-size:14px;font-weight:500;color:${S.exercises[ex.id]?'var(--t3)':'#fff'};text-decoration:${S.exercises[ex.id]?'line-through':'none'};line-height:1.3">${ex.l}${ex.physio?' <span style="font-size:9px;color:var(--purple);font-weight:600;letter-spacing:.05em">PHYSIO</span>':''}</div>
       <div style="font-size:11px;color:var(--t2);margin-top:2px">${ex.d}</div>
     </div>
   </div>`).join('')}
 </div>
 
-${eve&&sc<70?`<div class="card" style="background:#0F0A00;border-color:#2A1D00">
+${eve?`<div class="card" style="background:#0A0A0E;border-color:#16161E">
   <div style="display:flex;gap:11px;align-items:flex-start">
-    <span style="font-size:19px">🌙</span>
-    <div>
-      <div style="font-size:13px;font-weight:600;color:var(--amber)">Evening check-in</div>
-      <div style="font-size:12px;color:#8A6A20;margin-top:3px;line-height:1.5">This is the hour it slips. Log the day, skip the drink, and wake up to a clean streak. Tomorrow-you will thank you.</div>
+    <span style="font-size:18px">🌙</span>
+    <div style="flex:1">
+      <div style="font-size:13px;font-weight:500;color:#ccc">Evening</div>
+      <div style="font-size:12px;color:var(--t2);margin-top:3px;line-height:1.5">This is the hour it slips. Log the day, write the diary, skip the drink. Wake up to a clean streak.</div>
+      <div class="tap" onclick="sw('log')" style="display:inline-block;margin-top:10px;font-size:12px;font-weight:500;color:var(--blue)">Open the log →</div>
     </div>
   </div>
 </div>`:''}
-
 <div style="height:6px"></div>
 </div>`;
-  updateScoreRing();
+  updateRing();
 }
 </script>
 <script>
 function renderLog(){
   const pp=Math.min(Math.round(S.protein/PG*100),100);
+  const d=S.diary||{good1:'',good2:'',good3:'',smile:'',free:''};
   document.getElementById('view').innerHTML=
 `<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
 <div style="padding:8px 16px 14px">
-  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">Daily log</div>
-  <div class="lbl" style="margin-top:4px">${new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</div>
+  <div style="font-size:23px;font-weight:600;letter-spacing:-.6px">Daily log</div>
+  <div class="lbl" style="margin-top:5px">${new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</div>
 </div>
+
+<div class="card">
+  <div class="lbl" style="margin-bottom:6px">Three good things today</div>
+  <div style="font-size:11px;color:var(--t3);margin-bottom:12px;line-height:1.5">Writing them down changes what you notice. That's the point.</div>
+  <div class="diaryin"><textarea placeholder="One…" oninput="uDiary('good1',this.value)">${d.good1||''}</textarea></div>
+  <div class="diaryin"><textarea placeholder="Two…" oninput="uDiary('good2',this.value)">${d.good2||''}</textarea></div>
+  <div class="diaryin"><textarea placeholder="Three…" oninput="uDiary('good3',this.value)">${d.good3||''}</textarea></div>
+  <div class="lbl" style="margin:14px 0 8px">What made you smile</div>
+  <div class="diaryin"><textarea placeholder="However small…" oninput="uDiary('smile',this.value)">${d.smile||''}</textarea></div>
+  <div class="lbl" style="margin:14px 0 8px">Anything else (private)</div>
+  <div class="diaryin"><textarea placeholder="How the day really felt…" style="min-height:44px" oninput="uDiary('free',this.value)">${d.free||''}</textarea></div>
+</div>
+
 <div class="card">
   <div class="lbl" style="margin-bottom:14px">How you feel</div>
   ${SYM.map(sym=>{const v=S.symptoms[sym.k]??sym.min,t=sym.lb[v]||v;return`
   <div style="margin-bottom:15px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-      <span style="font-size:13px;font-weight:500;color:#bbb">${sym.l}</span>
-      <span id="sv-${sym.k}" style="font-size:11px;font-weight:600;color:${sym.c};min-width:100px;text-align:right">${v}${sym.min===0?'/10':'/5'} · ${t}</span>
+      <span style="font-size:13px;font-weight:400;color:#bbb">${sym.l}</span>
+      <span id="sv-${sym.k}" style="font-size:11px;font-weight:500;color:${sym.c};min-width:100px;text-align:right">${v}${sym.min===0?'/10':'/5'} · ${t}</span>
     </div>
     <input type="range" min="${sym.min}" max="${sym.max}" value="${v}" step="1" style="accent-color:${sym.c}" oninput="uSym('${sym.k}',this.value)">
   </div>`}).join('')}
 </div>
+
 <div class="card">
   <div class="lbl" style="margin-bottom:12px">Protein — ${PG}g target</div>
   <div style="display:flex;align-items:flex-end;gap:8px;margin-bottom:10px">
-    <span id="pnum" style="font-size:46px;font-weight:700;letter-spacing:-2px;line-height:1;color:${S.protein>=PG?'var(--green)':'#fff'}">${S.protein}</span>
+    <span id="pnum" style="font-size:44px;font-weight:600;letter-spacing:-2px;line-height:1;color:${S.protein>=PG?'var(--green)':'#fff'}">${S.protein}</span>
     <span style="font-size:13px;color:var(--t2);padding-bottom:7px">/ ${PG}g</span>
     <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
-      <button class="tap" onclick="addP(-10)" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--s3);background:none;color:var(--t2);font-size:20px;cursor:pointer;font-family:inherit;font-weight:300">−</button>
-      <button class="tap" onclick="addP(10)" style="width:38px;height:38px;border-radius:50%;border:none;background:var(--blue);color:#fff;font-size:20px;cursor:pointer;font-family:inherit;font-weight:300">+</button>
+      <button class="tap" onclick="addP(-10)" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--s3);background:none;color:var(--t2);font-size:20px;cursor:pointer;font-family:inherit;font-weight:200">−</button>
+      <button class="tap" onclick="addP(10)" style="width:38px;height:38px;border-radius:50%;border:none;background:var(--blue);color:#fff;font-size:20px;cursor:pointer;font-family:inherit;font-weight:200">+</button>
     </div>
   </div>
   <div class="pbar" style="margin-bottom:12px"><div id="pb" class="pbf" style="width:${pp}%;background:${S.protein>=PG?'var(--green)':'var(--blue)'}"></div></div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-    ${FOODS.map(f=>`<button class="tap" onclick="addP(${f.g})" style="padding:9px 11px;border-radius:11px;border:1px solid var(--s3);background:none;font-size:11px;color:var(--t2);cursor:pointer;text-align:left;line-height:1.4;font-family:inherit;font-weight:400">${f.l}<br><span style="color:var(--t3);font-weight:600">+${f.g}g</span></button>`).join('')}
+    ${FOODS.map(f=>`<button class="tap" onclick="addP(${f.g})" style="padding:9px 11px;border-radius:11px;border:1px solid var(--s3);background:none;font-size:11px;color:var(--t2);cursor:pointer;text-align:left;line-height:1.4;font-family:inherit">${f.l}<br><span style="color:var(--t3);font-weight:500">+${f.g}g</span></button>`).join('')}
   </div>
 </div>
+
 <div class="card">
   <div class="lbl" style="margin-bottom:12px">Supplements</div>
   <div style="display:flex;gap:8px">
-    ${SC.map(sc=>`<button class="tap" onclick="tsupp('${sc.k}',this)" style="flex:1;padding:11px 0;border-radius:11px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:${S.supplements[sc.k]?sc.c:'transparent'};font-size:11px;font-weight:600;color:${S.supplements[sc.k]?'#000':'var(--t2)'};cursor:pointer;font-family:inherit;transition:all .15s">${S.supplements[sc.k]?'✓ ':''}${sc.l}</button>`).join('')}
+    ${SC.map(sc=>`<button class="tap" onclick="tsupp('${sc.k}',this)" style="flex:1;padding:11px 0;border-radius:11px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:${S.supplements[sc.k]?sc.c:'transparent'};font-size:11px;font-weight:500;color:${S.supplements[sc.k]?'#000':'var(--t2)'};cursor:pointer;font-family:inherit">${S.supplements[sc.k]?'✓ ':''}${sc.l}</button>`).join('')}
   </div>
 </div>
+
 <div class="card">
-  <div class="lbl" style="margin-bottom:10px">Notes — for your next appointment</div>
-  <textarea oninput="uNote(this.value)" placeholder="Anything worth flagging to physio or the consultant...">${S.notes||''}</textarea>
+  <div class="lbl" style="margin-bottom:10px">Notes — for physio or consultant</div>
+  <textarea style="min-height:60px" oninput="uNote(this.value)" placeholder="Anything to flag — new pain, questions, how the Mounjaro's sitting alongside recovery...">${S.notes||''}</textarea>
 </div>
 <div style="height:6px"></div>
 </div>`;
 }
-
+</script>
+<script>
 function renderStreaks(){
   const alcS=streak(chkAlc),exS=streak(chkEx),protS=streak(chkProt),moveS=streak(chkMove);
   const hist=scoreHistory(14);
   const avg=Math.round(hist.reduce((a,b)=>a+b,0)/hist.length);
-  // weight trend
   const wKeys=Object.keys(CFG.weights).sort();
   const latestW=wKeys.length?CFG.weights[wKeys[wKeys.length-1]]:null;
   const startW=CFG.weightStart;
   const lostW=(startW&&latestW)?(startW-latestW):0;
   const toGo=latestW?(latestW-CFG.weightTarget):null;
-  // sparkline
-  const W=300,H=54;
-  const mn=Math.min(...hist),mx=Math.max(...hist,100),rng=(mx-mn)||1;
+  const commute=commuteMoney(),alcDays=alcoholFreeDays(),alcCash=alcDays*ALC_SAVE;
+  const W=300,H=52,mn=Math.min(...hist),mx=Math.max(...hist,100),rng=(mx-mn)||1;
   const pts=hist.map((v,i)=>{const x=(i/(hist.length-1))*W;const y=H-4-((v-mn)/rng)*(H-8);return x.toFixed(0)+','+y.toFixed(0)}).join(' ');
+  const lastPt=pts.split(' ').pop().split(',');
 
-  function streakCard(label,n,color,icon,sub){
-    return `<div style="flex:1;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:14px 12px">
-      <div style="font-size:16px;margin-bottom:8px">${icon}</div>
-      <div style="font-size:30px;font-weight:700;letter-spacing:-1.5px;line-height:1;color:${n>0?color:'var(--t3)'}">${n}</div>
-      <div class="lbl" style="margin-top:5px">${label}</div>
-      <div style="font-size:10px;color:var(--t3);margin-top:3px">${sub}</div>
-    </div>`;
-  }
-
-  const wSetup=!startW;
+  function sCard(label,n,color,icon,sub){return `<div style="flex:1;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:14px 12px"><div style="font-size:15px;margin-bottom:8px">${icon}</div><div style="font-size:29px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:${n>0?color:'var(--t3)'}">${n}</div><div class="lbl" style="margin-top:5px">${label}</div><div class="lbl-dim" style="margin-top:3px;text-transform:none;letter-spacing:0;font-size:10px">${sub}</div></div>`;}
 
   document.getElementById('view').innerHTML=
 `<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
 <div style="padding:8px 16px 14px">
-  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">Momentum</div>
-  <div class="lbl" style="margin-top:4px">Don't break the chain</div>
+  <div style="font-size:23px;font-weight:600;letter-spacing:-.6px">Momentum</div>
+  <div class="lbl" style="margin-top:5px">Don't break the chain</div>
 </div>
 
 <div style="padding:0 12px">
   <div style="display:flex;gap:8px;margin-bottom:8px">
-    ${streakCard('Alcohol-free',alcS,'var(--blue)','🚫',alcS>0?'days running':'start today')}
-    ${streakCard('Exercises',exS,'var(--green)','💪',exS>0?'days running':'start today')}
+    ${sCard('Alcohol-free',alcS,'var(--blue)','🚫',alcS>0?'days running':'start today')}
+    ${sCard('Exercises',exS,'var(--green)','💪',exS>0?'days running':'start today')}
   </div>
   <div style="display:flex;gap:8px;margin-bottom:8px">
-    ${streakCard('Protein hit',protS,'var(--amber)','🥩',protS>0?'days running':'start today')}
-    ${streakCard('Moved daily',moveS,'#BF5AF2','🚶',moveS>0?'days running':'start today')}
+    ${sCard('Protein hit',protS,'var(--amber)','🥩',protS>0?'days running':'start today')}
+    ${sCard('Moved',moveS,'var(--purple)','🚶',moveS>0?'days running':'start today')}
   </div>
 </div>
 
 <div class="card">
-  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
     <div class="lbl">14-day recovery score</div>
-    <div style="font-size:13px;font-weight:600;color:var(--t2)">avg ${avg}</div>
+    <div style="font-size:13px;font-weight:500;color:var(--t2)">avg ${avg}</div>
   </div>
   <svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="margin-top:8px;overflow:visible">
     <polyline points="${pts}" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    ${(()=>{const parts=pts.split(' ');const last=parts[parts.length-1].split(',');return `<circle cx="${last[0]}" cy="${last[1]}" r="3.5" fill="var(--green)"/>`;})()}
+    <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="3.5" fill="var(--green)"/>
   </svg>
+  <div style="font-size:11px;color:var(--t3);margin-top:8px;line-height:1.5">On a flat day, look here. The line is still climbing even when the body gives nothing back.</div>
 </div>
 
-${wSetup?`
+<div class="card">
+  <div class="lbl" style="margin-bottom:12px">${CFG.fundGoal} fund</div>
+  <div style="font-size:40px;font-weight:600;letter-spacing:-2px;line-height:1;color:var(--green)">${fm(commute+alcCash)}</div>
+  <div style="display:flex;gap:16px;margin-top:14px">
+    <div><div style="font-size:17px;font-weight:600">${fm(commute)}</div><div class="lbl-dim" style="margin-top:3px">not commuting</div></div>
+    <div><div style="font-size:17px;font-weight:600;color:var(--blue)">${fm(alcCash)}</div><div class="lbl-dim" style="margin-top:3px">${alcDays} dry days</div></div>
+  </div>
+  <div style="font-size:11px;color:var(--t3);margin-top:14px;line-height:1.5">Every dry day is a bottle not opened — £${ALC_SAVE} toward Switzerland. Not drinking isn't giving something up. It's buying the holiday.</div>
+</div>
+
+${!startW?`
 <div class="card" style="border-color:#1D2A1D">
-  <div class="lbl" style="margin-bottom:12px">Set your weight goal</div>
-  <div style="font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:14px">Coming off Mounjaro means appetite may rebound. Log weekly and let the trend keep you honest. Enter today's weight to start.</div>
-  <div style="display:flex;gap:8px;align-items:flex-end">
+  <div class="lbl" style="margin-bottom:10px">Set your weight goal</div>
+  <div style="font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:14px">Back on Mounjaro helps, but the trend still needs watching through recovery. Log weekly. Enter today's weight to begin.</div>
+  <div style="display:flex;gap:8px">
     <div style="flex:1"><div class="lbl-dim" style="margin-bottom:6px">Today (kg)</div><input type="number" id="wStart" placeholder="88" step="0.1"></div>
     <div style="flex:1"><div class="lbl-dim" style="margin-bottom:6px">Target (kg)</div><input type="number" id="wTarget" value="80" step="0.1"></div>
   </div>
-  <input type="hidden" id="fundIn" value="${CFG.fundGoal}">
-  <button class="tap" onclick="(function(){var s=parseFloat(document.getElementById('wStart').value);var t=parseFloat(document.getElementById('wTarget').value);if(s>0){CFG.weightStart=s;CFG.weights[todayKey()]=s;}if(t>0)CFG.weightTarget=t;saveCfg();renderStreaks();})()" style="width:100%;margin-top:14px;padding:13px;border-radius:12px;border:none;background:var(--green);color:#000;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer">Start tracking</button>
+  <button class="tap" onclick="setupSubmit()" style="width:100%;margin-top:14px;padding:13px;border-radius:12px;border:none;background:var(--green);color:#000;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer">Start tracking</button>
 </div>`:`
 <div class="card">
   <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
     <div class="lbl">Weight — target ${CFG.weightTarget}kg</div>
-    <div class="seg" onclick="(function(){document.getElementById('wInWrap').style.display=document.getElementById('wInWrap').style.display==='none'?'flex':'none';})()"><span style="background:var(--s2);color:#fff">+ Log</span></div>
+    <div class="seg" onclick="var e=document.getElementById('wInWrap');e.style.display=e.style.display==='none'?'flex':'none'"><span style="background:var(--s2);color:#fff">+ Log</span></div>
   </div>
   <div style="display:flex;align-items:flex-end;gap:12px">
     <div>
-      <div style="font-size:44px;font-weight:700;letter-spacing:-2px;line-height:1">${latestW?latestW.toFixed(1):'—'}<span style="font-size:15px;color:var(--t3);font-weight:500"> kg</span></div>
-      <div class="lbl-dim" style="margin-top:6px">${lostW>0?'▼ '+lostW.toFixed(1)+'kg lost':lostW<0?'▲ '+Math.abs(lostW).toFixed(1)+'kg up':'current'}</div>
+      <div style="font-size:42px;font-weight:600;letter-spacing:-2px;line-height:1">${latestW?latestW.toFixed(1):'—'}<span style="font-size:15px;color:var(--t3);font-weight:400"> kg</span></div>
+      <div class="lbl-dim" style="margin-top:6px;text-transform:none;letter-spacing:0">${lostW>0?'▼ '+lostW.toFixed(1)+'kg down':lostW<0?'▲ '+Math.abs(lostW).toFixed(1)+'kg up':'starting point'}</div>
     </div>
     <div style="margin-left:auto;text-align:right">
-      <div style="font-size:20px;font-weight:600;color:${toGo<=0?'var(--green)':'var(--amber)'}">${toGo<=0?'✓ Hit':toGo.toFixed(1)+'kg'}</div>
-      <div class="lbl-dim" style="margin-top:4px">${toGo<=0?'target reached':'to go'}</div>
+      <div style="font-size:19px;font-weight:600;color:${toGo<=0?'var(--green)':'var(--amber)'}">${toGo<=0?'✓ Hit':toGo.toFixed(1)+'kg'}</div>
+      <div class="lbl-dim" style="margin-top:4px;text-transform:none;letter-spacing:0">${toGo<=0?'target reached':'to go'}</div>
     </div>
   </div>
   <div id="wInWrap" style="display:none;gap:8px;margin-top:14px">
@@ -460,16 +498,91 @@ ${wSetup?`
     <button class="tap" onclick="saveWeight();document.getElementById('wInWrap').style.display='none'" style="padding:0 20px;border-radius:10px;border:none;background:var(--green);color:#000;font-weight:600;font-family:inherit;cursor:pointer">Save</button>
   </div>
   ${(()=>{const bar=startW&&latestW?Math.max(0,Math.min(100,(startW-latestW)/(startW-CFG.weightTarget)*100)):0;return `<div class="pbar" style="margin-top:16px"><div class="pbf" style="width:${bar}%;background:var(--green)"></div></div><div style="display:flex;justify-content:space-between;margin-top:6px"><span class="lbl-dim">${startW}kg start</span><span class="lbl-dim">${CFG.weightTarget}kg goal</span></div>`;})()}
+  <div class="tap" onclick="toggleMounjaro()" style="display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)">
+    <div style="width:18px;height:18px;border-radius:5px;border:1.5px solid ${CFG.onMounjaro?'var(--green)':'var(--t3)'};background:${CFG.onMounjaro?'var(--green)':'transparent'};display:flex;align-items:center;justify-content:center">${CFG.onMounjaro?'<svg width="10" height="10" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</div>
+    <span style="font-size:13px;color:var(--t2)">On Mounjaro</span>
+  </div>
 </div>`}
 
+<div style="height:6px"></div>
+</div>`;
+}
+</script>
+<script>
+function renderBuild(){
+  const projects=CFG.projects||[];
+  const activeP=projects.filter(p=>!p.done).length;
+  const doneP=projects.filter(p=>p.done).length;
+  const ps=CFG.physioStatus||'planning';
+  const plog=CFG.physioLog||[];
+
+  document.getElementById('view').innerHTML=
+`<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
+<div style="padding:8px 16px 14px">
+  <div style="font-size:23px;font-weight:600;letter-spacing:-.6px">Build</div>
+  <div class="lbl" style="margin-top:5px">Use the year. Don't just heal it.</div>
+</div>
+
 <div class="card" style="background:linear-gradient(135deg,#0D0D14,#0A0A0A);border-color:#1A1A2E">
-  <div style="display:flex;gap:12px;align-items:center">
-    <span style="font-size:26px">🏔️</span>
+  <div style="font-size:13px;color:#ccc;line-height:1.6">The knee is one track. You are the other. A day where the body did nothing but you made something still moved you forward. This is where that counts.</div>
+</div>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div class="lbl">Projects & ideas</div>
+    <div style="font-size:12px;color:var(--t2)">${activeP} active${doneP?' · '+doneP+' shipped':''}</div>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:14px">
+    <input type="text" id="projIn" placeholder="A thing to build, learn or earn from…" style="flex:1" onkeydown="if(event.key==='Enter')addProject()">
+    <button class="tap" onclick="addProject()" style="padding:0 18px;border-radius:10px;border:none;background:#fff;color:#000;font-weight:600;font-family:inherit;cursor:pointer;font-size:14px">Add</button>
+  </div>
+  ${projects.length?projects.map((p,i)=>`
+  <div style="display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)">
+    <div class="tap chk" onclick="toggleProject(${i})" style="border-color:${p.done?'var(--green)':'var(--t3)'};background:${p.done?'var(--green)':'transparent'};margin-top:1px">${p.done?'<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="2,5.5 4.3,8 9,3" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</div>
     <div style="flex:1">
-      <div style="font-size:15px;font-weight:600">Why you're doing this</div>
-      <div style="font-size:12px;color:var(--t2);margin-top:3px;line-height:1.5">Back running. Lighter and stronger than before. ${CFG.fundGoal} in the bank. And PalmerSport waiting at the summit — already paid, just needs the knee you're building.</div>
+      <div style="font-size:14px;font-weight:400;color:${p.done?'var(--t3)':'#fff'};text-decoration:${p.done?'line-through':'none'};line-height:1.35">${p.t}</div>
+      <div class="lbl-dim" style="margin-top:3px;text-transform:none;letter-spacing:0">${p.done?'shipped':'added '+fsh(p.date)}</div>
+    </div>
+    <div class="tap" onclick="delProject(${i})" style="color:var(--t3);font-size:18px;padding:0 4px;line-height:1">×</div>
+  </div>`).join(''):'<div style="text-align:center;padding:20px 0;color:var(--t3);font-size:13px;line-height:1.6">Nothing yet.<br>A Claude project. A Lotus thread. A business idea.<br>Whatever keeps the maker in you alive.</div>'}
+</div>
+
+<div class="card">
+  <div class="lbl" style="margin-bottom:6px">What did you build today?</div>
+  <div style="font-size:11px;color:var(--t3);margin-bottom:10px;line-height:1.5">One line. Kept as a record of the year not wasted.</div>
+  <div class="diaryin"><textarea placeholder="Even something small…" oninput="uBuilt(this.value)">${S.builtToday||''}</textarea></div>
+</div>
+
+<div style="padding:12px 16px 6px"><div class="lbl">Physiotherapy</div></div>
+${ps!=='booked'?`
+<div class="card" style="border-color:#1A1420">
+  <div style="display:flex;gap:11px;align-items:flex-start;margin-bottom:14px">
+    <span style="font-size:18px">📌</span>
+    <div>
+      <div style="font-size:14px;font-weight:500;color:var(--purple)">Book private physio</div>
+      <div style="font-size:12px;color:var(--t2);margin-top:4px;line-height:1.5">Your consultant flagged it as one of the highest-leverage things you can do. For a four-part repair — ACL, meniscus root, MCL, chondral — NHS cadence is often too slow to catch loading errors early. Weekly private eyes on the knee is what protects the fixation and speeds the return.</div>
     </div>
   </div>
+  <div style="display:flex;gap:8px">
+    <button class="tap" onclick="setPhysio('booked')" style="flex:1;padding:11px;border-radius:11px;border:1px solid var(--purple);background:var(--purple);color:#000;font-size:12px;font-weight:600;font-family:inherit;cursor:pointer">I've booked it</button>
+    <button class="tap" onclick="setPhysio('planning')" style="flex:1;padding:11px;border-radius:11px;border:1px solid ${ps==='planning'?'var(--t2)':'var(--s3)'};background:transparent;color:var(--t2);font-size:12px;font-weight:500;font-family:inherit;cursor:pointer">Still planning</button>
+  </div>
+</div>`:`
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+    <div style="font-size:14px;font-weight:500;color:var(--green)">✓ Physio booked</div>
+    <div style="font-size:12px;color:var(--t2)">${plog.length} session${plog.length===1?'':'s'} logged</div>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:14px">
+    <input type="date" id="psDate" value="${todayKey()}" style="flex:1;background:var(--s2);border:1px solid var(--s3);border-radius:10px;padding:10px;color:#fff;font-family:inherit;font-size:13px">
+    <button class="tap" onclick="addPhysioSession()" style="padding:0 18px;border-radius:10px;border:none;background:var(--purple);color:#000;font-weight:600;font-family:inherit;cursor:pointer;font-size:13px">Log</button>
+  </div>
+  <input type="text" id="psNote" placeholder="What they worked on / prescribed…" style="margin-bottom:14px">
+  ${plog.length?plog.slice(0,5).map(s=>`<div style="padding:9px 0;border-top:1px solid var(--line)"><div style="font-size:13px;color:#ddd">${fsh(s.date)}</div>${s.note?`<div style="font-size:12px;color:var(--t2);margin-top:2px">${s.note}</div>`:''}</div>`).join(''):''}
+</div>`}
+<div class="card">
+  <div class="lbl" style="margin-bottom:10px">Physio notes & questions</div>
+  <textarea style="min-height:70px" oninput="uPhysioNotes(this.value)" placeholder="Exercises they've prescribed, questions for next session, progress they've noted...">${CFG.physioNotes||''}</textarea>
 </div>
 <div style="height:6px"></div>
 </div>`;
@@ -477,19 +590,29 @@ ${wSetup?`
 </script>
 <script>
 function renderPlan(){
-  const days=gd(),now=new Date();
+  const days=gd();
   document.getElementById('view').innerHTML=
 `<div class="rise" style="padding:max(16px,env(safe-area-inset-top)) 0 0">
 <div style="padding:8px 16px 14px">
-  <div style="font-size:24px;font-weight:700;letter-spacing:-.8px">The road back</div>
-  <div class="lbl" style="margin-top:4px">May 2026 → July 2027 · 14 months</div>
+  <div style="font-size:23px;font-weight:600;letter-spacing:-.6px">The road back</div>
+  <div class="lbl" style="margin-top:5px">May 2026 → July 2027 · 14 months</div>
 </div>
+
+<div class="card">
+  <div class="lbl" style="margin-bottom:12px">Your surgery — 20 July</div>
+  <div style="font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:14px">Four repairs in one operation. Mr Sibbel, Royal Surrey.</div>
+  ${SURGERY_PARTS.map((p,i)=>`<div style="display:flex;gap:11px;padding:10px 0;border-top:1px solid var(--line)">
+    <div style="width:20px;height:20px;border-radius:50%;background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--t2);flex-shrink:0">${i+1}</div>
+    <div><div style="font-size:14px;font-weight:500;color:#fff">${p.n}</div><div style="font-size:12px;color:var(--t2);margin-top:2px;line-height:1.45">${p.d}</div></div>
+  </div>`).join('')}
+</div>
+
 ${PH.map((p,i)=>{const cur=days>=p.start&&days<p.end;const done=days>=p.end;return`
 <div style="border-radius:14px;padding:13px 15px;margin:0 12px 7px;background:${cur?'var(--s2)':'var(--s1)'};border:1px solid ${cur?p.c:'var(--line)'};border-left:3px solid ${cur?p.c:done?'#2A2A2A':'var(--s3)'};opacity:${done?.5:1}">
   <div style="display:flex;align-items:center;gap:8px">
     <div style="width:7px;height:7px;border-radius:50%;background:${cur||done?p.c:'var(--s3)'};flex-shrink:0"></div>
-    <span style="font-size:13px;font-weight:600;color:${cur?'#fff':done?'var(--t2)':'var(--t2)'};letter-spacing:.01em">${p.n}</span>
-    ${cur?`<span style="margin-left:auto;font-size:8px;font-weight:700;padding:3px 9px;border-radius:9px;background:${p.c};color:#000;letter-spacing:.1em">NOW</span>`:done?`<span style="margin-left:auto;font-size:14px;color:${p.c}">✓</span>`:''}
+    <span style="font-size:13px;font-weight:500;color:${cur?'#fff':'var(--t2)'}">${p.n}</span>
+    ${cur?`<span style="margin-left:auto;font-size:8px;font-weight:600;padding:3px 9px;border-radius:9px;background:${p.c};color:#000;letter-spacing:.1em">NOW</span>`:done?`<span style="margin-left:auto;font-size:14px;color:${p.c}">✓</span>`:''}
   </div>
   <div class="lbl-dim" style="padding-left:15px;margin-top:4px">${PD[i]}</div>
   ${cur?`<div style="font-size:12px;color:#888;padding-left:15px;margin-top:7px;line-height:1.5">${p.d}</div>`:''}
@@ -499,51 +622,28 @@ ${PH.map((p,i)=>{const cur=days>=p.start&&days<p.end;const done=days>=p.end;retu
 ${LM.map((m)=>{const d=df(m.date),past=d<-1;return`
 <div class="row" style="opacity:${past?.3:1};border-color:var(--line);${m.pk?'background:linear-gradient(90deg,rgba(191,90,242,.06),transparent)':''}">
   <div style="flex:1">
-    <div style="font-size:15px;font-weight:${m.pk?'700':'600'};color:#fff;letter-spacing:.01em">${m.pk?'★ ':''}${m.l}</div>
-    <div class="lbl-dim" style="margin-top:2px;letter-spacing:.05em">${m.s}</div>
+    <div style="font-size:15px;font-weight:${m.pk?'600':'500'};color:#fff">${m.pk?'★ ':''}${m.l}</div>
+    <div class="lbl-dim" style="margin-top:2px">${m.s}</div>
   </div>
   <div style="text-align:right">
     <div style="font-size:11px;color:var(--t2);margin-bottom:2px">${ff(m.date)}</div>
-    ${!past?`<div style="font-size:12px;font-weight:600;color:${d<30?'var(--amber)':'var(--t2)'};letter-spacing:-.2px">${d<=0?'Today':d<31?'In '+d+' days':d<365?'In '+Math.round(d/30.4)+' months':'In '+(d/365).toFixed(1)+' yrs'}</div>`:'<div style="font-size:12px;color:var(--t3)">Done</div>'}
+    ${!past?`<div style="font-size:12px;font-weight:500;color:${d<30?'var(--amber)':'var(--t2)'}">${d<=0?'Today':d<31?'In '+d+' days':d<365?'In '+Math.round(d/30.4)+' months':'In '+(d/365).toFixed(1)+' yrs'}</div>`:'<div style="font-size:12px;color:var(--t3)">Done</div>'}
   </div>
 </div>`}).join('')}
 <div style="height:6px"></div>
 </div>`;
 }
 
-function render(){
-  if(!CFG.weightStart&&!localStorage.getItem('rx3_skipSetup')&&TAB==='today'){
-    // first-run: still show today, weight prompt lives in streaks
-  }
-  if(TAB==='today')renderToday();
-  else if(TAB==='log')renderLog();
-  else if(TAB==='streaks')renderStreaks();
-  else renderPlan();
-}
-
-function sw(t){
-  TAB=t;
-  document.getElementById('scroll').scrollTop=0;
-  const ph=gp(gd());
-  ['today','log','streaks','plan'].forEach(v=>{
-    const on=v===t;
-    const icon=document.getElementById('ni-'+v),lbl=document.getElementById('nl-'+v);
-    if(icon)icon.style.color=on?ph.c:'var(--t3)';
-    if(lbl)lbl.style.color=on?ph.c:'var(--t3)';
-  });
-  render();
-}
+function render(){if(TAB==='today')renderToday();else if(TAB==='log')renderLog();else if(TAB==='streaks')renderStreaks();else if(TAB==='build')renderBuild();else renderPlan();}
+function sw(t){TAB=t;document.getElementById('scroll').scrollTop=0;const ph=gp(gd());['today','log','streaks','build','plan'].forEach(v=>{const on=v===t;const ic=document.getElementById('ni-'+v),lb=document.getElementById('nl-'+v);if(ic)ic.style.color=on?ph.c:'var(--t3)';if(lb)lb.style.color=on?ph.c:'var(--t3)';});render();}
 
 load();
 render();
 const ph0=gp(gd());
 document.getElementById('ni-today').style.color=ph0.c;
 document.getElementById('nl-today').style.color=ph0.c;
-['log','streaks','plan'].forEach(v=>{document.getElementById('ni-'+v).style.color='var(--t3)';document.getElementById('nl-'+v).style.color='var(--t3)';});
-
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}
+['log','streaks','build','plan'].forEach(v=>{document.getElementById('ni-'+v).style.color='var(--t3)';document.getElementById('nl-'+v).style.color='var(--t3)';});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
 </script>
 </body>
 </html>
