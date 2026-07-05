@@ -119,7 +119,7 @@ const SYM=[
   {k:'sleep',l:'Sleep',min:1,max:5,c:'#BF5AF2',lb:['','Very poor','Poor','OK','Good','Excellent']},
   {k:'energy',l:'Energy',min:1,max:5,c:'#FF6B35',lb:['','None','Very low','Moderate','Good','High']},
 ];
-const FOODS=[{l:'Chicken 150g',g:35},{l:'Whey shake',g:25},{l:'2 eggs',g:12},{l:'Greek yoghurt',g:17},{l:'Salmon 150g',g:30},{l:'Cottage cheese',g:14}];
+const FOODS=[{l:'Chicken 150g',g:35},{l:'Steak 200g',g:46},{l:'Salmon 150g',g:30},{l:'Protein shake',g:25},{l:'Whey scoop',g:20},{l:'Tofu 150g',g:17},{l:'Greek yoghurt',g:17},{l:'2 eggs',g:12},{l:'Cottage cheese',g:14},{l:'Egg white',g:4},{l:'Handful nuts',g:6},{l:'Tuna tin',g:26}];
 const SC=[{k:'vitc',l:'Vit C',c:'#FF9F0A'},{k:'omega3',l:'Omega 3',c:'#0A84FF'},{k:'multi',l:'Multi',c:'#30D158'}];
 const ML=['','Very low','Low','OK','Good','Great'];
 
@@ -218,6 +218,7 @@ function updateRing(){const sc=todayScore();const el=document.getElementById('sc
 function tgl(k){S[k]=!S[k];save();renderToday();}
 function tsupp(k,el){S.supplements[k]=!S.supplements[k];save();const sc=SC.find(s=>s.k===k);if(el){el.style.background=S.supplements[k]?sc.c:'transparent';el.style.borderColor=S.supplements[k]?sc.c:'var(--s3)';el.style.color=S.supplements[k]?'#000':'var(--t2)';el.textContent=(S.supplements[k]?'✓ ':'')+sc.l;}}
 function addP(g){S.protein=Math.max(0,Math.min(300,S.protein+g));save();const n=document.getElementById('pnum'),b=document.getElementById('pb');if(n){n.textContent=S.protein;n.style.color=S.protein>=PG?'var(--green)':'#fff';}if(b){b.style.width=Math.min(S.protein/PG*100,100)+'%';b.style.background=S.protein>=PG?'var(--green)':'var(--blue)';}}
+function addPManual(){var el=document.getElementById('pManual');if(!el)return;var v=parseInt(el.value);if(v>0){addP(v);el.value='';}}
 function uNote(v){S.notes=v;save();}
 function uSym(k,v){S.symptoms[k]=parseInt(v);if(k==='mood')S.moodLogged=true;save();const sym=SYM.find(s=>s.k===k);if(sym){const el=document.getElementById('sv-'+k);const tag=sym.lb[parseInt(v)]||v;if(el)el.textContent=v+(sym.min===0?'/10':'/5')+' · '+tag;}}
 function uDiary(k,v){S.diary[k]=v;save();}
@@ -371,18 +372,6 @@ function renderLog(){
 </div>
 
 <div class="card">
-  <div class="lbl" style="margin-bottom:6px">Three good things today</div>
-  <div style="font-size:11px;color:var(--t3);margin-bottom:12px;line-height:1.5">Writing them down changes what you notice. That's the point.</div>
-  <div class="diaryin"><textarea placeholder="One…" oninput="uDiary('good1',this.value)">${d.good1||''}</textarea></div>
-  <div class="diaryin"><textarea placeholder="Two…" oninput="uDiary('good2',this.value)">${d.good2||''}</textarea></div>
-  <div class="diaryin"><textarea placeholder="Three…" oninput="uDiary('good3',this.value)">${d.good3||''}</textarea></div>
-  <div class="lbl" style="margin:14px 0 8px">What made you smile</div>
-  <div class="diaryin"><textarea placeholder="However small…" oninput="uDiary('smile',this.value)">${d.smile||''}</textarea></div>
-  <div class="lbl" style="margin:14px 0 8px">Anything else (private)</div>
-  <div class="diaryin"><textarea placeholder="How the day really felt…" style="min-height:44px" oninput="uDiary('free',this.value)">${d.free||''}</textarea></div>
-</div>
-
-<div class="card">
   <div class="lbl" style="margin-bottom:14px">How you feel</div>
   ${SYM.map(sym=>{const v=S.symptoms[sym.k]??sym.min,t=sym.lb[v]||v;return`
   <div style="margin-bottom:15px">
@@ -408,6 +397,10 @@ function renderLog(){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
     ${FOODS.map(f=>`<button class="tap" onclick="addP(${f.g})" style="padding:9px 11px;border-radius:11px;border:1px solid var(--s3);background:none;font-size:11px;color:var(--t2);cursor:pointer;text-align:left;line-height:1.4;font-family:inherit">${f.l}<br><span style="color:var(--t3);font-weight:500">+${f.g}g</span></button>`).join('')}
   </div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+    <input type="number" id="pManual" placeholder="Or enter grams manually" step="1" style="flex:1;font-size:14px;font-weight:400" onkeydown="if(event.key==='Enter')addPManual()">
+    <button class="tap" onclick="addPManual()" style="padding:0 18px;border-radius:10px;border:1px solid var(--s3);background:var(--s2);color:#fff;font-weight:500;font-family:inherit;cursor:pointer;font-size:13px">Add</button>
+  </div>
 </div>
 
 <div class="card">
@@ -415,6 +408,18 @@ function renderLog(){
   <div style="display:flex;gap:8px">
     ${SC.map(sc=>`<button class="tap" onclick="tsupp('${sc.k}',this)" style="flex:1;padding:11px 0;border-radius:11px;border:1px solid ${S.supplements[sc.k]?sc.c:'var(--s3)'};background:${S.supplements[sc.k]?sc.c:'transparent'};font-size:11px;font-weight:500;color:${S.supplements[sc.k]?'#000':'var(--t2)'};cursor:pointer;font-family:inherit">${S.supplements[sc.k]?'✓ ':''}${sc.l}</button>`).join('')}
   </div>
+</div>
+
+<div class="card">
+  <div class="lbl" style="margin-bottom:6px">Three good things today</div>
+  <div style="font-size:11px;color:var(--t3);margin-bottom:12px;line-height:1.5">Writing them down changes what you notice. That's the point.</div>
+  <div class="diaryin"><textarea placeholder="One…" oninput="uDiary('good1',this.value)">${d.good1||''}</textarea></div>
+  <div class="diaryin"><textarea placeholder="Two…" oninput="uDiary('good2',this.value)">${d.good2||''}</textarea></div>
+  <div class="diaryin"><textarea placeholder="Three…" oninput="uDiary('good3',this.value)">${d.good3||''}</textarea></div>
+  <div class="lbl" style="margin:14px 0 8px">What made you smile</div>
+  <div class="diaryin"><textarea placeholder="However small…" oninput="uDiary('smile',this.value)">${d.smile||''}</textarea></div>
+  <div class="lbl" style="margin:14px 0 8px">Anything else (private)</div>
+  <div class="diaryin"><textarea placeholder="How the day really felt…" style="min-height:44px" oninput="uDiary('free',this.value)">${d.free||''}</textarea></div>
 </div>
 
 <div class="card">
